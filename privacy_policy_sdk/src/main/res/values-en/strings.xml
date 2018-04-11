@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+	<!--
+		this file is built by arct
+	-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+	<!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+	<string name="about">About</string>
+	<!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+	<string name="switch_on_text">"On"</string>
+	<!---->
+	<string name="switch_off_text">"Off"</string>
+	<!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+	<string name="informed_content_new">"For more info see our"</string>
+</resources>

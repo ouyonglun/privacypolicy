@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="disgnosticlib_ThemeOverlay.SwitchBar" parent="@android:style/ThemeOverlay">
+        <!-- Used by controls, e.g. CheckBox, ProgressBar, etc. -->
+        <item name="android:colorAccent">#FF37474F</item>
+    </style>
+
+    <style name="disgnosticlib_switchBarTheme" parent="@android:style/Theme.Material">
+        <item name="disgnosticlib_switchBarMarginStart">72dp</item>
+        <item name="disgnosticlib_switchBarMarginEnd">16dp</item>
+    </style>
+
+    <style name="consentStyle" parent="@android:style/Theme.Holo.Light">
+        <item name="android:windowAnimationStyle">@style/consentAnimation</item>
+    </style>
+
+    <style name="consentAnimation" parent="android:Animation">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowEnterAnimation">@anim/informed_consent_popup_enter</item>
+        <item name="android:windowExitAnimation">@anim/informed_consent_popup_exit</item>
+
+    </style>
+
+    <style name="consentStyleL" parent="@android:style/Theme.Material.Light">
+        <item name="android:windowAnimationStyle">@style/consentAnimation</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+</resources>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="about">"About"</string>
+    <string name="push_net_err">"Network error,try again later! "</string>
+</resources>

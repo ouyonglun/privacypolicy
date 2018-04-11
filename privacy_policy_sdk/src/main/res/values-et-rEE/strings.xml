@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+	<!--
+		this file is built by arct
+	-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+	<!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+	<string name="about">Teave</string>
+	<!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+	<string name="switch_on_text">"Sees"</string>
+	<!---->
+	<string name="switch_off_text">"Väljas"</string>
+	<!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+	<string name="informed_content_new">"Täiendava teabe saamiseks vt meie"</string>
+</resources>

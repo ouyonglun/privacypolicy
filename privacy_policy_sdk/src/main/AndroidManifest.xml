@@ -1,0 +1,23 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tcl.faext" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application>
+
+        <activity
+            android:name="com.tcl.faext.PrivacyPolicyActivity"
+            android:theme="@style/consentStyleL" />
+        <activity
+            android:name="com.tcl.faext.TermsAndConditionActivity"
+            android:theme="@style/consentStyleL" />
+        <activity
+            android:name="com.tcl.faext.InformedConsentActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:theme="@style/consentAnimation" />
+
+    </application>
+
+</manifest>

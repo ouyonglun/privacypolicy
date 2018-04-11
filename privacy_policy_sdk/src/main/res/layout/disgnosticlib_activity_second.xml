@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:layout_weight="1"
+    android:fitsSystemWindows="true">
+
+        <com.tcl.faext.SwitchBar
+            android:id="@+id/switch_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:visibility="gone"
+            android:theme="@style/disgnosticlib_switchBarTheme" />
+
+        <TextView
+            android:id="@+id/informed_consent_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:fontFamily="sans-serif"
+            android:textColor="#fE000000"
+            android:textSize="16sp"
+            android:visibility="gone"
+            android:layout_marginBottom="11dp"/>
+
+        <TextView
+            android:id="@+id/informed_consent_description"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:fontFamily="sans-serif"
+            android:textColor="#fE000000"
+            android:textSize="16sp"
+            android:textColorHighlight="#ff7fcac3"/>
+
+</LinearLayout>

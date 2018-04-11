@@ -1,0 +1,35 @@
+隐私政策&服务条款SDK集成和接口说明:
+target：信息流SDK集成的目标应用。以下target具有相同意义
+
+1.添加privac_policy_sdk依赖
+{
+    1) 拷贝privac_policy_sdk.aar到app->libs目录
+    2) app->build.gradle添加
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    3）app->build.gradle添加
+    dependencies {
+        compile 'com.tcl.mibc:newsflowSdk:latest.integration'
+    }
+}
+
+2.调用PrivacyPolicySDK.java类相关接口
+    /**
+     * 打开关于界面
+     * @param context
+     */
+    public void openAbout(Context context);
+
+    /**
+     * 打开隐私政策
+     */
+    public void openPrivacyPolicy(Context context);
+
+    /**
+     * 打开服务条款
+     * @param context
+     */
+    public void openTermsAndCondition(Context context);
