@@ -12,7 +12,7 @@ target：privac_policy_sdk集成的目标应用。以下target具有相同意义
     }
     3）app->build.gradle添加
     dependencies {
-        compile 'com.tcl.mibc:newsflowSdk:latest.integration'
+        compile(name: 'privacy_policy_sdk-release_1.0.0', ext: 'aar')
     }
 }
 
