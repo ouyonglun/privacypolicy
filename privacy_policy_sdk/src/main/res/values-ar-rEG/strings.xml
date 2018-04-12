@@ -4,6 +4,23 @@
 	-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 	<!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
 	<string name="about">"معلومات عنا"</string>
-
+	<!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+	<string name="switch_on_text">"تشغيل"</string>
+	<!---->
+	<string name="switch_off_text">"إيقاف"</string>
+	<!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+	<string name="informed_content_new">"لمزيد من المعلومات، راجع"</string>
 </resources>
