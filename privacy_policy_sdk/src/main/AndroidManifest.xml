@@ -8,6 +8,7 @@
 
         <activity
             android:name="com.tcl.faext.PrivacyPolicyActivity"
+            android:configChanges="orientation|screenSize"
             android:theme="@style/consentStyleL" />
         <activity
             android:name="com.tcl.faext.TermsAndConditionActivity"

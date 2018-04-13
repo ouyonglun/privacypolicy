@@ -3,8 +3,6 @@
 		this file is built by arct
 	-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_on_text">"On"</string>
-    <string name="switch_off_text">"Off"</string>
     <string name="informed_content_new">"For more info see our"</string>
     <string name="push_net_err">"Network error,try again later! "</string>
 </resources>

@@ -32,5 +32,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     // 集成SDK
-    compile(name: 'privacy_policy_sdk-release_1.0.0', ext: 'aar')
+    compile(name: 'privacy_policy_sdk-release_1.0.1', ext: 'aar')
 }

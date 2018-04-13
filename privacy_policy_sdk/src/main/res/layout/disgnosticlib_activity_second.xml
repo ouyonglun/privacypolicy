@@ -7,13 +7,6 @@
     android:layout_weight="1"
     android:fitsSystemWindows="true">
 
-        <com.tcl.faext.SwitchBar
-            android:id="@+id/switch_bar"
-            android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
-            android:visibility="gone"
-            android:theme="@style/disgnosticlib_switchBarTheme" />
-
         <TextView
             android:id="@+id/informed_consent_title"
             android:layout_width="fill_parent"
