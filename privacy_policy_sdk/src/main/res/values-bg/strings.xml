@@ -3,22 +3,7 @@
 		this file is built by arct
 	-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="about">"Относно"</string>
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="informed_content_new">"За повече информация вижте"</string>
+	<string name="data_load_error_tip_no_network">Мрежата не е достъпна, опитайте отново по-късно.</string>
 </resources>

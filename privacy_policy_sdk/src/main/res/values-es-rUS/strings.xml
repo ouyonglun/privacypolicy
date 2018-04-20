@@ -3,22 +3,7 @@
 		this file is built by arct
 	-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="about">Información</string>
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="informed_content_new">"Si precisa más información, consulte nuestros"</string>
+	<string name="data_load_error_tip_no_network">Red no disponible. Vuelva a intentarlo más tarde.</string>
 </resources>

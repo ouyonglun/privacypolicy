@@ -3,22 +3,7 @@
 		this file is built by arct
 	-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="about">Om</string>
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="informed_content_new">"For yderligere oplysninger se vores"</string>
+	<string name="data_load_error_tip_no_network">Netværk ikke tilgængeligt. Prøv igen senere.</string>
 </resources>

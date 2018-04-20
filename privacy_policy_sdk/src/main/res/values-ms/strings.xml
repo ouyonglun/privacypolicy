@@ -3,22 +3,7 @@
 		this file is built by arct
 	-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="about">Perihal</string>
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="informed_content_new">"Untuk maklumat lanjut lihat"</string>
+	<string name="data_load_error_tip_no_network">Rangkaian tidak tersedia, cuba lagi sebentar lagi.</string>
 </resources>

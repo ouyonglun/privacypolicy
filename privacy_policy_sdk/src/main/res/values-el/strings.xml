@@ -3,22 +3,7 @@
 		this file is built by arct
 	-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="about">Πληροφορίες για εμάς</string>
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="informed_content_new">"Για περισσότερες πληροφορίες, ανατρέξτε στο"</string>
+	<string name="data_load_error_tip_no_network">Το δίκτυο δεν είναι διαθέσιμο, δοκιμάστε αργότερα.</string>
 </resources>

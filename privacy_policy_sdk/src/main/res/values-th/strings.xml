@@ -3,22 +3,7 @@
 		this file is built by arct
 	-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="about">"เกี่ยวกับ"</string>
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="informed_content_new">"สำหรับข้อมูลเพิ่มเติม โปรดดูที่"</string>
+	<string name="data_load_error_tip_no_network">เครือข่ายไม่พร้อมใช้งาน โปรดลองอีกครั้งในภายหลัง</string>
 </resources>

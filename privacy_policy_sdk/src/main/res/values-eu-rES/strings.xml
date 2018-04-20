@@ -3,22 +3,7 @@
 		this file is built by arct
 	-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="about">Honi buruz</string>
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-	<!---->
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="informed_content_new">"Informazio gehiago lortzeko, irakurri gure"</string>
+	<string name="data_load_error_tip_no_network">Sarea ez dago erabilgarri. Saiatu berriro geroago.</string>
 </resources>

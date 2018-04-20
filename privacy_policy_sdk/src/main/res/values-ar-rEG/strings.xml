@@ -3,22 +3,7 @@
 		this file is built by arct
 	-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="about">"معلومات عنا"</string>
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-	<!---->
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="informed_content_new">"لمزيد من المعلومات، راجع"</string>
+	<string name="data_load_error_tip_no_network">الشبكة غير متوفرة، حاول مرة أخرى لاحقًا.</string>
 </resources>

@@ -3,22 +3,8 @@
 		this file is built by arct
 	-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="about">Apie</string>
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="informed_content_new">"Norėdami daugiau informacijos, žr. mūsų"</string>
+	<string name="data_load_error_tip_no_network">Tinklas nepasiekiamas, bandykite dar kartą vėliau.</string>
+
 </resources>

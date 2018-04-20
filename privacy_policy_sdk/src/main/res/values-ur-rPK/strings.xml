@@ -3,22 +3,7 @@
 		this file is built by arct
 	-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="about">"کے بارے میں"</string>
-	<!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
-    <!---->
 	<string name="informed_content_new">"مزید معلومات کے لیے دیکھیں ہماری"</string>
+	<string name="data_load_error_tip_no_network">نیٹ ورک دستیاب نہیں ہے، بعد میں کوشش کریں۔</string>
 </resources>
