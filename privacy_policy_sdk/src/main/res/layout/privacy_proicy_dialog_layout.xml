@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="296dp"
+    android:layout_height="364dp"
     android:orientation="vertical"
     android:background="#fff5f5f5">
 
@@ -10,17 +10,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#cc000000"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:paddingLeft="18dp"
-        android:paddingTop="18dp"
-        android:paddingRight="18dp"
-        android:paddingBottom="16dp"/>
+        android:paddingLeft="24dp"
+        android:paddingTop="24dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="16dp"
+        android:lineSpacingExtra="3dp"/>
 
     <FrameLayout
-        android:layout_width="296dp"
-        android:layout_height="200dp">
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -32,9 +34,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#88000000"
-                android:paddingRight="18dp"
-                android:paddingLeft="18dp"
-                android:textSize="16sp"/>
+                android:paddingRight="24dp"
+                android:paddingLeft="24dp"
+                android:lineSpacingExtra="5dp"
+                android:textSize="12sp"/>
 
         </ScrollView>
 
@@ -46,7 +49,7 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:text="OK"
-        android:paddingTop="30dp"
+        android:paddingTop="15dp"
         android:paddingBottom="15dp"
         android:textColor="@color/color_privacy_dialog_ok"
         android:layout_gravity="center"/>
