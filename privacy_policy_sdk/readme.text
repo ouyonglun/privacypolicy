@@ -33,3 +33,9 @@ target：privac_policy_sdk集成的目标应用。以下target具有相同意义
      * @param context
      */
     public void openTermsAndCondition(Context context);
+
+    /**
+     * 打开隐私政策弹窗
+     * @param activity
+     */
+    public void openPolicyDialog(Activity activity);
