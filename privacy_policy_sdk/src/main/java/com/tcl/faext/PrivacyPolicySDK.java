@@ -1,5 +1,6 @@
 package com.tcl.faext;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
@@ -49,5 +50,13 @@ public class PrivacyPolicySDK {
             context.startActivity(intent);
         } catch (Exception e) {
         }
+    }
+
+    /**
+     * 打开隐私政策弹窗
+     * @param activity
+     */
+    public void openPolicyDialog(Activity activity) {
+        new PrivacyPolicyDialog(activity).show();
     }
 }
