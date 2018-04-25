@@ -6,7 +6,6 @@
     <string name="about">About</string>
     <string name="informed_content_new">"For more info see our"</string>
     <string name="data_load_error_tip_no_network">Network not available, try again later.</string>
-    <string name="privacy_policy_dialog_informed_title">Privacy policy and terms of service</string>
     <string name="privacy_policy_dialog_informed_content">For more information,please refer to our %1$s and %2$s to enhance the experience.For more information, For more information, use the experience.
     For more information, use the experience.For more information, use the experience.For more information, use the experience.
     </string>
