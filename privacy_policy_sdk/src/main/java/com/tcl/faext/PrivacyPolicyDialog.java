@@ -26,9 +26,7 @@ public class PrivacyPolicyDialog extends Dialog {
 
         TextView titleView = (TextView) findViewById(R.id.dialog_title);
         TextView contentView = (TextView) findViewById(R.id.dialog_content);
-        titleView.setText(context.getString(R.string.policy) +
-                        context.getString(R.string.and) +
-                context.getString(R.string.tos));
+        titleView.setText(Html.fromHtml(context.getString(R.string.privacy_policy_0_1)));
 
         init2(context, contentView);
 
