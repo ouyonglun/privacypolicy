@@ -22,6 +22,11 @@ import android.widget.TextView;
 import com.tcl.faext.utils.NetworkUtils;
 import com.tcl.faext.utils.PushUtils;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 /**
  * Created by shaohua.li on 3/21/16.
  */
@@ -45,6 +50,7 @@ public class PrivacyPolicyActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.disgnosticlib_activity_privacy_policy);
+        initWebViewProvider();
         if (Build.VERSION.SDK_INT <= 19) {
             setTheme(R.style.consentStyle);
         }
@@ -251,5 +257,71 @@ public class PrivacyPolicyActivity extends Activity {
         }, "loadAgreementUrl").start();
     }
 
+    private void initWebViewProvider() {
+        int uid = android.os.Process.myUid();
+        if (!(uid == 0 || uid == android.os.Process.SYSTEM_UID)) {
+            return;
+        }
+        try {
+            if (Build.VERSION.SDK_INT < 23 && Build.VERSION.SDK_INT >= 21) {
+                Class<?> webViewFactoryClass = Class.forName("android.webkit.WebViewFactory");
+                Method loadNativeLibrary = webViewFactoryClass.getDeclaredMethod("loadNativeLibrary");
+                loadNativeLibrary.setAccessible(true);
+                loadNativeLibrary.invoke(null);
+                loadNativeLibrary.setAccessible(false);
 
+                Method getProviderClassMethod = webViewFactoryClass.getDeclaredMethod("getFactoryClass");
+                getProviderClassMethod.setAccessible(true);
+                Class<?> webViewFactoryProviderClass = (Class<?>) getProviderClassMethod.invoke(null);
+                getProviderClassMethod.setAccessible(false);
+
+                Class<?> webViewDelegateClass = Class.forName("android.webkit.WebViewDelegate");
+                Constructor<?> webViewDelegateConstructor = webViewDelegateClass.getDeclaredConstructor();
+                webViewDelegateConstructor.setAccessible(true);
+                Object webViewDelegate = webViewDelegateConstructor.newInstance();
+                webViewDelegateConstructor.setAccessible(false);
+
+                Object webViewFactoryProvider = webViewFactoryProviderClass.getConstructor(webViewDelegateClass).newInstance(webViewDelegate);
+
+                Field providerInstanceField = webViewFactoryClass.getDeclaredField("sProviderInstance");
+                providerInstanceField.setAccessible(true);
+                providerInstanceField.set(null, webViewFactoryProvider);
+                providerInstanceField.setAccessible(false);
+
+            } else if (Build.VERSION.SDK_INT >= 23) {
+                Class<?> webViewFactoryClass = Class.forName("android.webkit.WebViewFactory");
+                Method getProviderClassMethod = webViewFactoryClass.getDeclaredMethod("getProviderClass");
+                getProviderClassMethod.setAccessible(true);
+                Class<?> webViewFactoryProviderClass = (Class<?>) getProviderClassMethod.invoke(null);
+                getProviderClassMethod.setAccessible(false);
+
+                Class<?> webViewDelegateClass = Class.forName("android.webkit.WebViewDelegate");
+                Constructor<?> webViewDelegateConstructor = webViewDelegateClass.getDeclaredConstructor();
+                webViewDelegateConstructor.setAccessible(true);
+                Object webViewDelegate = webViewDelegateConstructor.newInstance();
+                webViewDelegateConstructor.setAccessible(false);
+
+                Object webViewFactoryProvider = webViewFactoryProviderClass.getConstructor(webViewDelegateClass).newInstance(webViewDelegate);
+
+                Field providerInstanceField = webViewFactoryClass.getDeclaredField("sProviderInstance");
+                providerInstanceField.setAccessible(true);
+                providerInstanceField.set(null, webViewFactoryProvider);
+                providerInstanceField.setAccessible(false);
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+    }
 }
