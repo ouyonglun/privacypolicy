@@ -156,52 +156,5 @@ public class InformedConsentActivity extends Activity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        checkCollectOn(this);
     }
-
-    /**
-     * @hide
-     */
-    public static void checkCollectOn(Context context) {
-        if (BuildConfig.ENABLE_CU || "com.jrdcom.elabel.old".equals(context.getPackageName()) || "com.jrdcom.Elabel".equals(context.getPackageName()) || !isCollectChecked(context)) { // MODIFIED by rongjun.zheng, 2017-05-25,BUG-4869550,4869355
-            return;
-        }
-        boolean collectDataOn = getFACollectionEnabled(context);
-        if (collectDataOn) {
-            return;
-        }
-        long now = System.currentTimeMillis();
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        int refuseTime = sharedPreferences.getInt(KEY_REFUSE_TIMES, -1);
-        Log.d("FAExt", "checkCollectOn==================refuseTime=============" + refuseTime);
-        if (refuseTime > 2) {
-            return;
-        }
-        long lastDay = sharedPreferences.getLong(KEY_LAST_TURN_OFF_TIME, now);
-        if (lastDay == now) {
-            sharedPreferences.edit().putLong(KEY_LAST_TURN_OFF_TIME, now).apply();
-            //return ;
-        }
-        long day = (now - lastDay) / 24 / 3600 / 1000;
-        Log.d("FAExt", "checkCollectOn==================day=============" + day);
-        if (refuseTime == -1 || refuseTime == 0 && day >= 14
-                || refuseTime == 1 && day >= 30
-                || refuseTime == 2 && day >= 90) {
-//            showConsentDialog(context, false);
-            sharedPreferences.edit().putInt(KEY_REFUSE_TIMES, refuseTime + 1).apply();
-            sharedPreferences.edit().putLong(KEY_LAST_TURN_OFF_TIME, now).apply();
-        }
-        //        showConsentDialog(context, false);
-    }
-
-    public static boolean getFACollectionEnabled(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(KEY_SWITHC_COLLECT, context.getResources().getBoolean(R.bool.def_fa_collect_on));
-    }
-
-    private static boolean isCollectChecked(Context context) {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean checked = sharedPreferences.getBoolean("checkCollect", false);
-        return checked;
-    }
-
 }
