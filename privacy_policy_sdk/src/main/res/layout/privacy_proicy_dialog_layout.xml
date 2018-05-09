@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="296dp"
-    android:layout_height="364dp"
-    android:orientation="vertical"
-    android:background="#fff5f5f5">
-
-    <TextView
-        android:id="@+id/dialog_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#cc000000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_gravity="left"
-        android:paddingLeft="24dp"
-        android:paddingTop="24dp"
-        android:paddingRight="24dp"
-        android:paddingBottom="0dp"
-        android:lineSpacingExtra="3dp"/>
+    android:layout_width="280dp"
+    android:layout_height="144dp"
+    android:background="#fff5f5f5"
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="wrap_content"
@@ -33,11 +19,13 @@
                 android:id="@+id/dialog_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#88000000"
-                android:paddingRight="24dp"
-                android:paddingLeft="24dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|start"
                 android:lineSpacingExtra="5dp"
-                android:textSize="12sp"/>
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:textColor="#88000000"
+                android:textSize="14sp" />
 
         </ScrollView>
 
@@ -45,14 +33,14 @@
 
     <TextView
         android:id="@+id/ok"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="@string/abnormal_sdcard_alert_button_title"
-        android:paddingTop="15dp"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:text="@string/ok"
         android:textColor="@color/color_privacy_dialog_ok"
-        android:layout_gravity="center"/>
-
-
+        android:textSize="16sp" />
+s
 </LinearLayout>

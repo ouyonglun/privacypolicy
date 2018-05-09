@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PrivacyPolicySDK.getInstance().fetchDialogSwitch(MainActivity.this, "310", new OnFetchListener() {
+                PrivacyPolicySDK.getInstance().fetchDialogSwitch(MainActivity.this, "460", new OnFetchListener() {
                     @Override
                     public void onCompleted(boolean on) {
                         Log.i(TAG, "onCompleted: result = " + on);

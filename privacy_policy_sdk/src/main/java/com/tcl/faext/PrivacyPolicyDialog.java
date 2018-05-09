@@ -24,11 +24,11 @@ public class PrivacyPolicyDialog extends Dialog {
         setCanceledOnTouchOutside(false);
         setContentView(R.layout.privacy_proicy_dialog_layout);
 
-        TextView titleView = (TextView) findViewById(R.id.dialog_title);
+//        TextView titleView = (TextView) findViewById(R.id.dialog_title);
         TextView contentView = (TextView) findViewById(R.id.dialog_content);
-        titleView.setText(Html.fromHtml(context.getString(R.string.privacy_policy_0_1)));
+//        titleView.setText(Html.fromHtml(context.getString(R.string.privacy_policy_0_1)));
+        init(context, contentView);
 
-        init2(context, contentView);
 
         findViewById(R.id.ok).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,15 +41,15 @@ public class PrivacyPolicyDialog extends Dialog {
     private void init(final Context context, TextView contentView) {
         Resources res = context.getResources();
         String privacyText = res.getString(R.string.privacy);
-        String serviceText = res.getString(R.string.service_terms);
-        String contentText = res.getString(R.string.privacy_policy_dialog_informed_content);
-        String contentStr = String.format(contentText, privacyText, serviceText);
+//        String serviceText = res.getString(R.string.service_terms);
+        String contentText = res.getString(R.string.content_privacy_dialog);
+        String contentStr = String.format(contentText, privacyText);
         String[] split = contentStr.split(privacyText, 2);
         String msg1 = split[0];
         String msg2 = split[1];
-        split = msg2.split(serviceText, 2);
-        msg2 = split[0];
-        String msg3 = split[1];
+//        split = msg2.split(serviceText, 2);
+//        msg2 = split[0];
+//        String msg3 = split[1];
         final int linkTextColor = res.getColor(R.color.color_privacy_dialog_ok);
         SpannableString spanPrivacy = new SpannableString(privacyText);
         spanPrivacy.setSpan(new ClickableSpan() {
@@ -61,29 +61,29 @@ public class PrivacyPolicyDialog extends Dialog {
             @Override
             public void updateDrawState(TextPaint ds) {
                 super.updateDrawState(ds);
-                ds.setUnderlineText(false);
+                ds.setUnderlineText(true);
                 ds.setColor(linkTextColor);
             }
         }, 0, spanPrivacy.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        SpannableString spanService = new SpannableString(serviceText);
-        spanService.setSpan(new ClickableSpan() {
-            @Override
-            public void onClick(View widget) {
-                PrivacyPolicySDK.getInstance().openPrivacyPolicy(context);
-            }
-
-            @Override
-            public void updateDrawState(TextPaint ds) {
-                super.updateDrawState(ds);
-                ds.setUnderlineText(false);
-                ds.setColor(linkTextColor);
-            }
-        }, 0, spanService.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        SpannableString spanService = new SpannableString(serviceText);
+//        spanService.setSpan(new ClickableSpan() {
+//            @Override
+//            public void onClick(View widget) {
+//                PrivacyPolicySDK.getInstance().openPrivacyPolicy(context);
+//            }
+//
+//            @Override
+//            public void updateDrawState(TextPaint ds) {
+//                super.updateDrawState(ds);
+//                ds.setUnderlineText(false);
+//                ds.setColor(linkTextColor);
+//            }
+//        }, 0, spanService.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(msg1);
         spannableStringBuilder.append(spanPrivacy);
         spannableStringBuilder.append(msg2);
-        spannableStringBuilder.append(spanService);
-        spannableStringBuilder.append(msg3);
+//        spannableStringBuilder.append(spanService);
+//        spannableStringBuilder.append(msg3);
         contentView.setText(spannableStringBuilder);
         contentView.setMovementMethod(LinkMovementMethod.getInstance());
     }

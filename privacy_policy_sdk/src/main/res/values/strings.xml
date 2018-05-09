@@ -11,4 +11,6 @@
     </string>
     <string name="privacy">privacy policy</string>
     <string name="service_terms">service terms</string>
+    <string name="content_privacy_dialog">We have updated our %1$s，and you can check it later from Setting-About.</string>
+    <string name="ok">OK</string>
 </resources>
