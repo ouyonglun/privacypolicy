@@ -55,7 +55,7 @@ public class PrivacyPolicyDialog extends Dialog {
         spanPrivacy.setSpan(new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                PrivacyPolicySDK.getInstance().openTermsAndCondition(context);
+                PrivacyPolicySDK.getInstance().openPrivacyPolicy(context);
             }
 
             @Override
