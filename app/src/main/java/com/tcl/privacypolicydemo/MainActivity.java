@@ -1,15 +1,16 @@
 package com.tcl.privacypolicydemo;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
-import com.tcl.faext.InformedConsentActivity;
-import com.tcl.faext.PrivacyPolicyDialog;
+import com.tcl.faext.OnFetchListener;
 import com.tcl.faext.PrivacyPolicySDK;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "dan";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,16 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PrivacyPolicySDK.getInstance().openPolicyDialog(MainActivity.this);
+                PrivacyPolicySDK.getInstance().fetchDialogSwitch(MainActivity.this, "310", new OnFetchListener() {
+                    @Override
+                    public void onCompleted(boolean on) {
+                        Log.i(TAG, "onCompleted: result = " + on);
+                        if (on) {
+                            PrivacyPolicySDK.getInstance().openPolicyDialog(MainActivity.this);
+                        }
+                    }
+                });
+
             }
         });
 
