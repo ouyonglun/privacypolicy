@@ -43,15 +43,13 @@ public class TermsActivity extends BaseActivity {
     private final static int ACTION_AUTO = 0;
     private final static int ACTION_MANUAL = 1;
     private int responseCode;
-    private static final String AGREEMENT_URL = "agreement_url";
+    private static final String TERMS_URL = "terms_url";
     private String DEFAULT_HTML = "http://platform.tclclouds.com/api/push-sdk-policy.html";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        fullLayout();
-        setContentView(R.layout.disgnosticlib_activity_privacy_policy);
-        initWebViewProvider();
         setContentView(R.layout.disgnosticlib_activity_privacy_policy);
         initWebViewProvider();
         if (Build.VERSION.SDK_INT <= 19) {
@@ -88,7 +86,7 @@ public class TermsActivity extends BaseActivity {
     private void initData() {
         try {
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-            String url = sharedPreferences.getString(AGREEMENT_URL, "");
+            String url = sharedPreferences.getString(TERMS_URL, "");
             if (TextUtils.isEmpty(url) || url.equalsIgnoreCase("null")) {
                 loadUrl(ACTION_MANUAL);
                 errorView.setVisibility(View.GONE);
@@ -205,19 +203,19 @@ public class TermsActivity extends BaseActivity {
             return;
         }
 
-        if (!NetworkUtils.isNetworkAvailable()) {
+        if (NetworkUtils.getNetworkStatus(this).equals(NetworkUtils.NetworkStatus.NetworkNotReachable)) {
             webSetting("");
             return;
         }
 
         mLoading = true;
-        com.tcl.faext.PrivacyPolicyActivity.AgreementCallBack callBack = null;
+        AgreementCallBack callBack = null;
         if (action == ACTION_MANUAL) {
-            callBack = new com.tcl.faext.PrivacyPolicyActivity.AgreementCallBack() {
+            callBack = new AgreementCallBack() {
                 @Override
                 public void onLoadUrl(String url) {
                     if (!TextUtils.isEmpty(url) && !url.equalsIgnoreCase("null")) {
-                        PreferenceManager.getDefaultSharedPreferences(TermsActivity.this).edit().putString(AGREEMENT_URL, url).apply();
+                        PreferenceManager.getDefaultSharedPreferences(TermsActivity.this).edit().putString(TERMS_URL, url).apply();
                     }
                     runOnUiThread(new TemplateRunnable<String>(url) {
                         @Override
@@ -239,7 +237,7 @@ public class TermsActivity extends BaseActivity {
         void onLoadUrl(String url);
     }
 
-    private void doLoadUrl(final com.tcl.faext.PrivacyPolicyActivity.AgreementCallBack callback) {
+    private void doLoadUrl(final AgreementCallBack callback) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -330,4 +328,3 @@ public class TermsActivity extends BaseActivity {
         }
     }
 }
-

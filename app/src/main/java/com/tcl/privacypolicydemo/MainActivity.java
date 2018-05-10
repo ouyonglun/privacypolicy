@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String imsi = getSubscriberId(MainActivity.this);
                 String mcc = "";
-                if (imsi.length() > 3) {
+                if (imsi != null && imsi.length() > 3) {
                     mcc = imsi.substring(0, 3);
                 }
                 Log.i(TAG, "onClick: mcc = " + mcc);
