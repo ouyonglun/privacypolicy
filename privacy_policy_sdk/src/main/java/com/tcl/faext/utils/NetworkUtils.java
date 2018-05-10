@@ -73,7 +73,7 @@ public class NetworkUtils {
             list.add(pkg);
             String sign = SignUtil.generateSign(list);
             Log.i(TAG, "loadAgreementUrl: keys = " + keys + " , " + pkg + " , " + sign);
-            connection = generateConnection(HttpApi.PATH_ALL_URL_V1_TEST + "?pkg=" + pkg
+            connection = generateConnection(HttpApi.PATH_ALL_URL_V1 + "?pkg=" + pkg
                     + "&keys=" + keys + "&sign=" + sign);
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");

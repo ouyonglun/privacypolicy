@@ -22,4 +22,6 @@ public class HttpApi {
     public static final String PATH_FIREBASE_CONFIG_V1 = "/api/v1/app/config";
     public static final String PATH_AGREEMENT_URL_V1 = "/api/v1/app/privacypolicy";
     public static final String PATH_ALL_URL_V1_TEST = "http://platform-test.tclclouds.com/api/v1/config/keys";
+    public static final String PATH_ALL_URL_V1_FORMAL = "http://platform.tclclouds.com/api/v1/config/keys";
+    public static final String PATH_ALL_URL_V1 = BuildConfig.DEBUG ? PATH_ALL_URL_V1_TEST : PATH_ALL_URL_V1_FORMAL;
 }

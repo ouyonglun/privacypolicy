@@ -9,17 +9,17 @@
         android:id="@+id/about"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/about"
+        android:layout_marginTop="30dp"
         android:gravity="center"
-        android:layout_marginTop="30dp"/>
+        android:text="@string/about" />
 
     <Button
         android:id="@+id/dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="dialog"
+        android:layout_marginTop="30dp"
         android:gravity="center"
-        android:layout_marginTop="30dp"/>
+        android:text="dialog" />
 
 
 </LinearLayout>

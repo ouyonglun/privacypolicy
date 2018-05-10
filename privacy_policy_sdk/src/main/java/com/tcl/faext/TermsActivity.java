@@ -2,9 +2,10 @@
 package com.tcl.faext;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,7 +29,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 
-public class TermsActivity extends Activity {
+public class TermsActivity extends BaseActivity {
     private static final String TAG = "TermsActivity";
     //    private static final String DEFAULT_HTML = "file:///android_asset/agreement.html";
     private ActionBar mActionBar;
@@ -47,6 +48,10 @@ public class TermsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        fullLayout();
+        setContentView(R.layout.disgnosticlib_activity_privacy_policy);
+        initWebViewProvider();
         setContentView(R.layout.disgnosticlib_activity_privacy_policy);
         initWebViewProvider();
         if (Build.VERSION.SDK_INT <= 19) {
@@ -57,11 +62,12 @@ public class TermsActivity extends Activity {
         if (mActionBar != null) {
             mActionBar.setDisplayHomeAsUpEnabled(true);
             mActionBar.setTitle(R.string.terms_and_condition);
+            mActionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4FA2FE")));
         }
 
         findViewById();
         initData();
-        super.onCreate(savedInstanceState);
+
     }
 
     private void findViewById() {
@@ -238,7 +244,7 @@ public class TermsActivity extends Activity {
             @Override
             public void run() {
                 try {
-                    String url = NetworkUtils.loadAgreementUrl(TermsActivity.this,"terms");
+                    String url = NetworkUtils.loadAgreementUrl(TermsActivity.this, "terms");
                     if (url != null) {
                         PreferenceManager.getDefaultSharedPreferences(TermsActivity.this).edit().putLong(KEY_LAST_ACTION_LOAD_URL_TIMES, System.currentTimeMillis()).apply();
                     }

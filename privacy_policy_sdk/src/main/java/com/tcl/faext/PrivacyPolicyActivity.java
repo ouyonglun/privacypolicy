@@ -2,15 +2,15 @@
 package com.tcl.faext;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -31,7 +31,7 @@ import java.lang.reflect.Method;
 /**
  * Created by shaohua.li on 3/21/16.
  */
-public class PrivacyPolicyActivity extends Activity {
+public class PrivacyPolicyActivity extends BaseActivity {
     private static final String TAG = "dan";
     //    private static final String DEFAULT_HTML = "file:///android_asset/agreement.html";
     private ActionBar mActionBar;
@@ -50,6 +50,8 @@ public class PrivacyPolicyActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        fullLayout();
         setContentView(R.layout.disgnosticlib_activity_privacy_policy);
         initWebViewProvider();
         if (Build.VERSION.SDK_INT <= 19) {
@@ -60,11 +62,12 @@ public class PrivacyPolicyActivity extends Activity {
         if (mActionBar != null) {
             mActionBar.setDisplayHomeAsUpEnabled(true);
             mActionBar.setTitle(R.string.privacy_policy);
+            mActionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4FA2FE")));
         }
 
         findViewById();
         initData();
-        super.onCreate(savedInstanceState);
+
     }
 
     private void findViewById() {
@@ -242,7 +245,7 @@ public class PrivacyPolicyActivity extends Activity {
             @Override
             public void run() {
                 try {
-                    String url = NetworkUtils.loadAgreementUrl(PrivacyPolicyActivity.this,"privacy");
+                    String url = NetworkUtils.loadAgreementUrl(PrivacyPolicyActivity.this, "privacy");
                     if (url != null) {
                         PreferenceManager.getDefaultSharedPreferences(PrivacyPolicyActivity.this).edit().putLong(KEY_LAST_ACTION_LOAD_URL_TIMES, System.currentTimeMillis()).apply();
                     }

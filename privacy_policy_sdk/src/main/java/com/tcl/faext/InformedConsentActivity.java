@@ -1,40 +1,30 @@
 package com.tcl.faext;
 
 import android.app.ActionBar;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 /**
  * 用户条款和隐私协议展示页
- *
+ * <p>
  * Created by shaohua.li on 12/7/15.
  */
-public class InformedConsentActivity extends Activity{
+public class InformedConsentActivity extends BaseActivity {
     private final String TAG = "InformedConsentActivity";
     private ActionBar mActionBar;
     private TextView informedDescription;
-//    private SwitchBar mSwitchBar;
+    //    private SwitchBar mSwitchBar;
     public final static String KEY_SWITHC_COLLECT = "hawkeye_enable";
     public final static String KEY_REFUSE_TIMES = "KEY_REFUSE_TIMES";
     public final static String KEY_LAST_TURN_OFF_TIME = "KEY_LAST_TURN_OFF_TIME";
@@ -42,16 +32,7 @@ public class InformedConsentActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Window window = this.getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        ViewGroup decorViewGroup = (ViewGroup) window.getDecorView();
-        View statusBarView = new View(window.getContext());
-        int statusBarHeight = getStatusBarHeight(window.getContext());
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, statusBarHeight);
-        params.gravity = Gravity.TOP;
-        statusBarView.setLayoutParams(params);
-        statusBarView.setBackgroundColor(Color.parseColor("#6A000000"));
-        decorViewGroup.addView(statusBarView);
+//        fullLayout();
         initGobalView();
     }
 
@@ -68,6 +49,7 @@ public class InformedConsentActivity extends Activity{
         if (mActionBar != null) {
             mActionBar.setDisplayHomeAsUpEnabled(true);
             mActionBar.setTitle(R.string.about);
+            mActionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4FA2FE")));
         }
 
 //        TextView tvContentTitle = (TextView) findViewById(R.id.informed_consent_title);
@@ -90,6 +72,7 @@ public class InformedConsentActivity extends Activity{
             public void updateDrawState(TextPaint ds) {
                 super.updateDrawState(ds);
                 ds.setUnderlineText(false);
+                ds.setColor(Color.parseColor("#4FA2FE"));
             }
         }, 0, msg2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableStringBuilder.append(msg2);
@@ -106,9 +89,11 @@ public class InformedConsentActivity extends Activity{
             public void updateDrawState(TextPaint ds) {
                 super.updateDrawState(ds);
                 ds.setUnderlineText(false);
+                ds.setColor(Color.parseColor("#4FA2FE"));
             }
         }, 0, msg3.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableStringBuilder.append(msg3);
+        spannableStringBuilder.append(".");
         informedDescription.setText(spannableStringBuilder);
         informedDescription.setMovementMethod(LinkMovementMethod.getInstance());
 //        mSwitchBar = (SwitchBar) findViewById(R.id.switch_bar);
@@ -142,16 +127,6 @@ public class InformedConsentActivity extends Activity{
 //            FAExt.logEventForConsentPage(StatEvent.CONSENT_PAGE_REFUSED);
 //        }
 //    }
-
-    private static int getStatusBarHeight(Context context) {
-        int statusBarHeight = 0;
-        Resources res = context.getResources();
-        int resourceId = res.getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            statusBarHeight = res.getDimensionPixelSize(resourceId);
-        }
-        return statusBarHeight;
-    }
 
     @Override
     protected void onDestroy() {
