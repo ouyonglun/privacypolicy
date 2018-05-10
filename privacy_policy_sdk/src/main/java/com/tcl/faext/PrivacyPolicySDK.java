@@ -76,8 +76,16 @@ public class PrivacyPolicySDK {
      *
      * @param activity
      */
-    public void openPolicyDialog(Activity activity) {
-        new PrivacyPolicyDialog(activity).show();
+    public void openPolicyDialog(final Activity activity, String mcc) {
+        PrivacyPolicySDK.getInstance().fetchDialogSwitch(activity, mcc, new OnFetchListener() {
+            @Override
+            public void onCompleted(boolean on) {
+                Log.i(TAG, "onCompleted: result = " + on);
+                if (on) {
+                    new PrivacyPolicyDialog(activity).show();
+                }
+            }
+        });
     }
 
     /**
