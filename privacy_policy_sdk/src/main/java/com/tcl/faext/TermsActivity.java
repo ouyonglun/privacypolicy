@@ -10,7 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -28,11 +27,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-/**
- * Created by shaohua.li on 3/21/16.
- */
-public class PrivacyPolicyActivity extends Activity {
-    private static final String TAG = "dan";
+
+public class TermsActivity extends Activity {
+    private static final String TAG = "TermsActivity";
     //    private static final String DEFAULT_HTML = "file:///android_asset/agreement.html";
     private ActionBar mActionBar;
 
@@ -59,7 +56,7 @@ public class PrivacyPolicyActivity extends Activity {
 
         if (mActionBar != null) {
             mActionBar.setDisplayHomeAsUpEnabled(true);
-            mActionBar.setTitle(R.string.privacy_policy);
+            mActionBar.setTitle(R.string.terms_and_condition);
         }
 
         findViewById();
@@ -194,7 +191,6 @@ public class PrivacyPolicyActivity extends Activity {
     boolean mLoading;
 
     private void loadUrl(int action) {
-
         if (action == ACTION_AUTO && !need()) {
             return;
         }
@@ -203,19 +199,19 @@ public class PrivacyPolicyActivity extends Activity {
             return;
         }
 
-        if (NetworkUtils.getNetworkStatus(this).equals(NetworkUtils.NetworkStatus.NetworkNotReachable)) {
+        if (!NetworkUtils.isNetworkAvailable()) {
             webSetting("");
             return;
         }
 
         mLoading = true;
-        AgreementCallBack callBack = null;
+        com.tcl.faext.PrivacyPolicyActivity.AgreementCallBack callBack = null;
         if (action == ACTION_MANUAL) {
-            callBack = new AgreementCallBack() {
+            callBack = new com.tcl.faext.PrivacyPolicyActivity.AgreementCallBack() {
                 @Override
                 public void onLoadUrl(String url) {
                     if (!TextUtils.isEmpty(url) && !url.equalsIgnoreCase("null")) {
-                        PreferenceManager.getDefaultSharedPreferences(PrivacyPolicyActivity.this).edit().putString(AGREEMENT_URL, url).apply();
+                        PreferenceManager.getDefaultSharedPreferences(TermsActivity.this).edit().putString(AGREEMENT_URL, url).apply();
                     }
                     runOnUiThread(new TemplateRunnable<String>(url) {
                         @Override
@@ -237,14 +233,14 @@ public class PrivacyPolicyActivity extends Activity {
         void onLoadUrl(String url);
     }
 
-    private void doLoadUrl(final AgreementCallBack callback) {
+    private void doLoadUrl(final com.tcl.faext.PrivacyPolicyActivity.AgreementCallBack callback) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    String url = NetworkUtils.loadAgreementUrl(PrivacyPolicyActivity.this,"privacy");
+                    String url = NetworkUtils.loadAgreementUrl(TermsActivity.this,"terms");
                     if (url != null) {
-                        PreferenceManager.getDefaultSharedPreferences(PrivacyPolicyActivity.this).edit().putLong(KEY_LAST_ACTION_LOAD_URL_TIMES, System.currentTimeMillis()).apply();
+                        PreferenceManager.getDefaultSharedPreferences(TermsActivity.this).edit().putLong(KEY_LAST_ACTION_LOAD_URL_TIMES, System.currentTimeMillis()).apply();
                     }
                     if (callback != null) {
                         callback.onLoadUrl(url);
@@ -328,3 +324,4 @@ public class PrivacyPolicyActivity extends Activity {
         }
     }
 }
+

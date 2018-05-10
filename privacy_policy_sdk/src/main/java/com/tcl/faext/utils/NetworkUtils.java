@@ -3,21 +3,24 @@ package com.tcl.faext.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 
 import com.tcl.faext.net.HttpApi;
 import com.tcl.faext.net.TlsOnlySocketFactory;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import javax.net.ssl.HostnameVerifier;
@@ -31,29 +34,25 @@ import javax.net.ssl.SSLSocketFactory;
  */
 
 public class NetworkUtils {
+    private static final String TAG = "dan";
     static NetworkStatus mStatus = NetworkStatus.NetworkNotReachable;
 
-    public static enum NetworkStatus{
+    public static enum NetworkStatus {
         NetworkNotReachable,
         NetworkReachableViaWWAN,
         NetworkReachableViaWiFi,
     }
 
-    public NetworkStatus getNetworkStatus(Context context) {
+    public static NetworkStatus getNetworkStatus(Context context) {
 
         ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info = manager.getActiveNetworkInfo();
-        if (info == null || !info.isAvailable())
-        {
+        if (info == null || !info.isAvailable()) {
             mStatus = NetworkStatus.NetworkNotReachable;
-        }
-        else if (info.getType() == ConnectivityManager.TYPE_MOBILE)
-        {
+        } else if (info.getType() == ConnectivityManager.TYPE_MOBILE) {
             mStatus = NetworkStatus.NetworkReachableViaWWAN;
 
-        }
-        else if (info.getType() == ConnectivityManager.TYPE_WIFI)
-        {
+        } else if (info.getType() == ConnectivityManager.TYPE_WIFI) {
             mStatus = NetworkStatus.NetworkReachableViaWiFi;
         }
         return mStatus;
@@ -63,11 +62,19 @@ public class NetworkUtils {
         return !mStatus.equals(NetworkStatus.NetworkNotReachable);
     }
 
-    public static String loadAgreementUrl(Context context) {
+    public static String loadAgreementUrl(Context context, String type) {
         HttpURLConnection connection = null;
         InputStream is = null;
         try {
-            connection = generateConnection(HttpApi.PATH_AGREEMENT_URL_V1 + "?packageName=" + context.getPackageName() + "&lang="+ Locale.getDefault().getLanguage());
+            String keys = type + "_" + Locale.getDefault().getLanguage();
+            String pkg = context.getPackageName();
+            List<String> list = new ArrayList<>();
+            list.add(keys);
+            list.add(pkg);
+            String sign = SignUtil.generateSign(list);
+            Log.i(TAG, "loadAgreementUrl: keys = " + keys + " , " + pkg + " , " + sign);
+            connection = generateConnection(HttpApi.PATH_ALL_URL_V1_TEST + "?pkg=" + pkg
+                    + "&keys=" + keys + "&sign=" + sign);
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
             int status = connection.getResponseCode();
@@ -75,8 +82,15 @@ public class NetworkUtils {
                 case HttpURLConnection.HTTP_OK: {
                     is = connection.getInputStream();
                     JSONObject result = convert(is);
-
-                    return result.getString("data");
+                    JSONObject config = new JSONObject(result.getString("data"));
+                    JSONArray array = new JSONArray(config.getString("configuration"));
+                    if (array.length() > 0) {
+                        JSONObject object = array.getJSONObject(0);
+                        Log.i(TAG, "loadAgreementUrl: value = " + object.getString("value"));
+                        return object.getString("value");
+                    } else {
+                        return "";
+                    }
                 }
                 default: {
                     return null;
@@ -104,6 +118,7 @@ public class NetworkUtils {
             baos.write(buffer, 0, len);
         }
         String response = baos.toString();
+        Log.i(TAG, "convert: response = " + response);
         baos.close();
 
         return new JSONObject(response);

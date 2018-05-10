@@ -14,6 +14,9 @@
             android:name="com.tcl.faext.TermsAndConditionActivity"
             android:theme="@style/consentStyleL" />
         <activity
+            android:name="com.tcl.faext.TermsActivity"
+            android:theme="@style/consentStyleL" />
+        <activity
             android:name="com.tcl.faext.InformedConsentActivity"
             android:excludeFromRecents="true"
             android:exported="true"

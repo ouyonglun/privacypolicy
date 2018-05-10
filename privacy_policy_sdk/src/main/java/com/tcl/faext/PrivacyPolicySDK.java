@@ -64,7 +64,8 @@ public class PrivacyPolicySDK {
      */
     public void openTermsAndCondition(Context context) {
         try {
-            Intent intent = new Intent(context, TermsAndConditionActivity.class);
+//            Intent intent = new Intent(context, TermsAndConditionActivity.class);
+            Intent intent = new Intent(context, TermsActivity.class);
             context.startActivity(intent);
         } catch (Exception e) {
         }
