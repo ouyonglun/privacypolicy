@@ -20,7 +20,7 @@ import android.widget.TextView;
 public class PrivacyPolicyDialog extends Dialog {
 
     public PrivacyPolicyDialog(final Context context) {
-        super(context);
+        super(context, R.style.toast_dialog);
         setCanceledOnTouchOutside(false);
         setContentView(R.layout.privacy_proicy_dialog_layout);
 

@@ -34,7 +34,7 @@ public class PrivacyPolicySDK {
     private PrivacyPolicySDK() {
         mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
         FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
-                .setDeveloperModeEnabled(false)
+                .setDeveloperModeEnabled(BuildConfig.DEBUG)
                 .build();
         mFirebaseRemoteConfig.setConfigSettings(configSettings);
         mFirebaseRemoteConfig.setDefaults(R.xml.remote_config_defaults);
@@ -82,7 +82,9 @@ public class PrivacyPolicySDK {
             public void onCompleted(boolean on) {
                 Log.i(TAG, "onCompleted: result = " + on);
                 if (on) {
-                    new PrivacyPolicyDialog(activity).show();
+                    if (!activity.isFinishing()) {
+                        new PrivacyPolicyDialog(activity).show();
+                    }
                 }
             }
         });
