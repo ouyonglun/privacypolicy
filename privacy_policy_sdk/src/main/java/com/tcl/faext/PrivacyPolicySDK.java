@@ -80,7 +80,9 @@ public class PrivacyPolicySDK {
         PrivacyPolicySDK.getInstance().fetchDialogSwitch(activity, mcc, new OnFetchListener() {
             @Override
             public void onCompleted(boolean on) {
-                Log.i(TAG, "onCompleted: result = " + on);
+                if (BuildConfig.DEBUG) {
+                    Log.i(TAG, "onCompleted: [on]"+on);
+                }
                 if (on) {
                     if (!activity.isFinishing()) {
                         new PrivacyPolicyDialog(activity).show();
@@ -109,11 +111,15 @@ public class PrivacyPolicySDK {
                         if (task.isSuccessful()) {
                             mFirebaseRemoteConfig.activateFetched();
                             boolean r = mFirebaseRemoteConfig.getBoolean("shouldOpen");
-                            Log.i(TAG, "onComplete: successful = " + r);
+                            if (BuildConfig.DEBUG) {
+                                Log.i(TAG, "onComplete: successful = "+r);
+                            }
                             listener.onCompleted(r);
                         } else {
                             boolean r = mFirebaseRemoteConfig.getBoolean("shouldOpen");
-                            Log.i(TAG, "onComplete: failed = " + r);
+                            if (BuildConfig.DEBUG) {
+                                Log.i(TAG, "onComplete: failed = "+r);
+                            }
                             if (contains(mcc)) {
                                 listener.onCompleted(false);
                             } else {

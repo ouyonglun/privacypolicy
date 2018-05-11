@@ -35,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
                 if (imsi != null && imsi.length() > 3) {
                     mcc = imsi.substring(0, 3);
                 }
-                Log.i(TAG, "onClick: mcc = " + mcc);
+                if (BuildConfig.DEBUG) {
+                    Log.i(TAG, "onClick: mcc = "+mcc);
+                }
                 PrivacyPolicySDK.getInstance().openPolicyDialog(MainActivity.this, mcc);
             }
         });

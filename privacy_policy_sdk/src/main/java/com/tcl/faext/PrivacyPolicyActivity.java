@@ -32,7 +32,6 @@ import java.lang.reflect.Method;
  * Created by shaohua.li on 3/21/16.
  */
 public class PrivacyPolicyActivity extends BaseActivity {
-    private static final String TAG = "dan";
     //    private static final String DEFAULT_HTML = "file:///android_asset/agreement.html";
     private ActionBar mActionBar;
 

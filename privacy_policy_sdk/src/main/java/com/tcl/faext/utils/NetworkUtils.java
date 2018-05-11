@@ -34,7 +34,6 @@ import javax.net.ssl.SSLSocketFactory;
  */
 
 public class NetworkUtils {
-    private static final String TAG = "dan";
     static NetworkStatus mStatus = NetworkStatus.NetworkNotReachable;
 
     public static enum NetworkStatus {
@@ -72,7 +71,6 @@ public class NetworkUtils {
             list.add(keys);
             list.add(pkg);
             String sign = SignUtil.generateSign(list);
-            Log.i(TAG, "loadAgreementUrl: keys = " + keys + " , " + pkg + " , " + sign);
             connection = generateConnection(HttpApi.PATH_ALL_URL_V1 + "?pkg=" + pkg
                     + "&keys=" + keys + "&sign=" + sign);
             connection.setRequestMethod("GET");
@@ -86,7 +84,6 @@ public class NetworkUtils {
                     JSONArray array = new JSONArray(config.getString("configuration"));
                     if (array.length() > 0) {
                         JSONObject object = array.getJSONObject(0);
-                        Log.i(TAG, "loadAgreementUrl: value = " + object.getString("value"));
                         return object.getString("value");
                     } else {
                         return "";
@@ -118,7 +115,6 @@ public class NetworkUtils {
             baos.write(buffer, 0, len);
         }
         String response = baos.toString();
-        Log.i(TAG, "convert: response = " + response);
         baos.close();
 
         return new JSONObject(response);
