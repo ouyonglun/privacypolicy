@@ -73,8 +73,8 @@ public class PrivacyPolicySDK {
 
     /**
      * 打开隐私政策弹窗
-     *
      * @param activity
+     * @param mcc
      */
     public void openPolicyDialog(final Activity activity, String mcc) {
         PrivacyPolicySDK.getInstance().fetchDialogSwitch(activity, mcc, new OnFetchListener() {

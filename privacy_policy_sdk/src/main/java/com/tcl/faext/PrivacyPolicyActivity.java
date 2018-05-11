@@ -45,7 +45,8 @@ public class PrivacyPolicyActivity extends BaseActivity {
     private final static int ACTION_MANUAL = 1;
     private int responseCode;
     private static final String AGREEMENT_URL = "agreement_url";
-    private String DEFAULT_HTML = "http://schedulemanag-test.tclclouds.com/arr-private-en.html";
+    private String DEFAULT_HTML = BuildConfig.DEBUG ? "http://schedulemanag-test.tclclouds.com/arr-private-en.html"
+            : "http://platform-h5.tclclouds.com/arr-private-en.html";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
