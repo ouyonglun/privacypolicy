@@ -44,7 +44,7 @@ public class TermsActivity extends BaseActivity {
     private final static int ACTION_MANUAL = 1;
     private int responseCode;
     private static final String TERMS_URL = "terms_url";
-    private String DEFAULT_HTML = "http://platform.tclclouds.com/api/push-sdk-policy.html";
+    private String DEFAULT_HTML = "http://schedulemanag-test.tclclouds.com/arr-tos-en.html";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
