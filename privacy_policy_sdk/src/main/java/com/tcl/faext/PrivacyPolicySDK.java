@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class PrivacyPolicySDK {
 
     private static final String TAG = "dan";
-    public static final String[] MUTE_MCC_LIST = {"302", "310"};//302:加拿大；310：美国
+    private static final String DEFAULT_MCC_WHITE_LIST = "208,262,222,204,206,270,234,235,238,272,202,214,268,232,240,244,280,216,230,248,247,246,278,260,231,293,284,226";//欧盟国家，白名单
 
     private static PrivacyPolicySDK sInstance;
 
@@ -106,38 +106,24 @@ public class PrivacyPolicySDK {
                 if (BuildConfig.DEBUG) {
                     Log.i(TAG, "run: value = " + value);
                 }
-                String muteList = "";
-                try {
-                    JSONObject o = new JSONObject(value);
-                    muteList = o.getString("muteList");
-                    if (BuildConfig.DEBUG) {
-                        Log.i(TAG, "run: muteList = " + muteList);
+                String whiteList = "";
+                if (value != null) {
+                    try {
+                        JSONObject o = new JSONObject(value);
+                        whiteList = o.getString("whiteList");
+                        if (BuildConfig.DEBUG) {
+                            Log.i(TAG, "run: whiteList = " + whiteList);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
-                if (TextUtils.isEmpty(muteList)) {
-                    listener.onCompleted(!contains(mcc));
+                if (TextUtils.isEmpty(whiteList)) {
+                    listener.onCompleted(DEFAULT_MCC_WHITE_LIST.contains(mcc));
                 } else {
-                    listener.onCompleted(!containsNotEmpty(muteList, mcc));
+                    listener.onCompleted(whiteList.contains(mcc));
                 }
             }
         }).start();
-    }
-
-    private boolean containsNotEmpty(String muteList, String mcc) {
-        if (TextUtils.isEmpty(mcc)) {
-            return false;
-        }
-        return muteList.contains(mcc);
-    }
-
-    private boolean contains(String mcc) {
-        for (String s : MUTE_MCC_LIST) {
-            if (s.equals(mcc)) {
-                return true;
-            }
-        }
-        return false;
     }
 }

@@ -3,7 +3,9 @@ package com.tcl.faext.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 
+import com.tcl.faext.BuildConfig;
 import com.tcl.faext.net.HttpApi;
 import com.tcl.faext.net.TlsOnlySocketFactory;
 
@@ -33,6 +35,7 @@ import javax.net.ssl.SSLSocketFactory;
  */
 
 public class NetworkUtils {
+    private static final String TAG = "dan";
     static NetworkStatus mStatus = NetworkStatus.NetworkNotReachable;
 
     public static enum NetworkStatus {
@@ -96,7 +99,9 @@ public class NetworkUtils {
             return null;
         } finally {
             try {
-                is.close();
+                if (is != null) {
+                    is.close();
+                }
             } catch (IOException ignore) {
             }
             if (connection != null) {
@@ -115,6 +120,10 @@ public class NetworkUtils {
             list.add(keys);
             list.add(pkg);
             String sign = SignUtil.generateSign(list);
+            if (BuildConfig.DEBUG) {
+                Log.i(TAG, "requestDialogSwitch: path = " + HttpApi.PATH_ALL_URL_V1 + "?pkg=" + pkg
+                        + "&keys=" + keys + "&sign=" + sign);
+            }
             connection = generateConnection(HttpApi.PATH_ALL_URL_V1 + "?pkg=" + pkg
                     + "&keys=" + keys + "&sign=" + sign);
             connection.setRequestMethod("GET");
@@ -141,7 +150,9 @@ public class NetworkUtils {
             return null;
         } finally {
             try {
-                is.close();
+                if (is != null) {
+                    is.close();
+                }
             } catch (IOException ignore) {
             }
             if (connection != null) {
