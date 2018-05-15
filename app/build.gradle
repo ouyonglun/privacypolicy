@@ -36,5 +36,3 @@ dependencies {
 //        compile(name: 'privacy_policy_sdk-release', ext: 'aar')
     implementation project(':privacy_policy_sdk')
 }
-
-apply plugin: 'com.google.gms.google-services'
