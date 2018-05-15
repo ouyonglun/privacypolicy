@@ -73,19 +73,20 @@ public class PrivacyPolicySDK {
 
     /**
      * 打开隐私政策弹窗
+     *
      * @param activity
      * @param mcc
      */
-    public void openPolicyDialog(final Activity activity, String mcc) {
+    public void openPolicyDialog(final Activity activity, String mcc, final PrivacyPolicyDialog.OnPrivacyDialogClickListener listener) {
         PrivacyPolicySDK.getInstance().fetchDialogSwitch(activity, mcc, new OnFetchListener() {
             @Override
             public void onCompleted(boolean on) {
                 if (BuildConfig.DEBUG) {
-                    Log.i(TAG, "onCompleted: [on]"+on);
+                    Log.i(TAG, "onCompleted: [on]" + on);
                 }
                 if (on) {
-                    if (!activity.isFinishing()) {
-                        new PrivacyPolicyDialog(activity).show();
+                    if (activity != null && !activity.isFinishing()) {
+                        new PrivacyPolicyDialog(activity, listener).show();
                     }
                 }
             }
@@ -112,13 +113,13 @@ public class PrivacyPolicySDK {
                             mFirebaseRemoteConfig.activateFetched();
                             boolean r = mFirebaseRemoteConfig.getBoolean("shouldOpen");
                             if (BuildConfig.DEBUG) {
-                                Log.i(TAG, "onComplete: successful = "+r);
+                                Log.i(TAG, "onComplete: successful = " + r);
                             }
                             listener.onCompleted(r);
                         } else {
                             boolean r = mFirebaseRemoteConfig.getBoolean("shouldOpen");
                             if (BuildConfig.DEBUG) {
-                                Log.i(TAG, "onComplete: failed = "+r);
+                                Log.i(TAG, "onComplete: failed = " + r);
                             }
                             if (contains(mcc)) {
                                 listener.onCompleted(false);

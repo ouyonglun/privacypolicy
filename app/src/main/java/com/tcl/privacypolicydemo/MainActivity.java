@@ -9,6 +9,7 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 
+import com.tcl.faext.PrivacyPolicyDialog;
 import com.tcl.faext.PrivacyPolicySDK;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,9 +37,19 @@ public class MainActivity extends AppCompatActivity {
                     mcc = imsi.substring(0, 3);
                 }
                 if (BuildConfig.DEBUG) {
-                    Log.i(TAG, "onClick: mcc = "+mcc);
+                    Log.i(TAG, "onClick: mcc = " + mcc);
                 }
-                PrivacyPolicySDK.getInstance().openPolicyDialog(MainActivity.this, mcc);
+                PrivacyPolicySDK.getInstance().openPolicyDialog(MainActivity.this, mcc, new PrivacyPolicyDialog.OnPrivacyDialogClickListener() {
+                    @Override
+                    public void onConfirmed() {
+                        Log.d(TAG, "onConfirmed: ");
+                    }
+
+                    @Override
+                    public void onCancelled() {
+                        Log.d(TAG, "onCancelled: ");
+                    }
+                });
             }
         });
 

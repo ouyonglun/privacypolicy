@@ -13,27 +13,44 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.TextView;
 
+import com.tcl.faext.utils.AppUtils;
+
 /**
  * Created by lunou on 18-4-19.
  */
 
 public class PrivacyPolicyDialog extends Dialog {
+    private static final String TAG = "dan";
 
-    public PrivacyPolicyDialog(final Context context) {
+    public PrivacyPolicyDialog(final Context context, final OnPrivacyDialogClickListener listener) {
         super(context, R.style.toast_dialog);
         setCanceledOnTouchOutside(false);
         setContentView(R.layout.privacy_proicy_dialog_layout);
 
-//        TextView titleView = (TextView) findViewById(R.id.dialog_title);
+        TextView titleView = (TextView) findViewById(R.id.dialog_title);
         TextView contentView = (TextView) findViewById(R.id.dialog_content);
 //        titleView.setText(Html.fromHtml(context.getString(R.string.privacy_policy_0_1)));
-        init(context, contentView);
+        titleView.setText(AppUtils.getAppName(context));
 
+        init2(context, contentView);
 
         findViewById(R.id.ok).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
+                if (listener != null) {
+                    listener.onConfirmed();
+                }
+            }
+        });
+
+        findViewById(R.id.cancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+                if (listener != null) {
+                    listener.onCancelled();
+                }
             }
         });
     }
@@ -123,5 +140,11 @@ public class PrivacyPolicyDialog extends Dialog {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
+    }
+
+    public interface OnPrivacyDialogClickListener {
+        void onConfirmed();
+
+        void onCancelled();
     }
 }

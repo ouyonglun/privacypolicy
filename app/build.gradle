@@ -35,8 +35,8 @@ dependencies {
     compile 'com.google.firebase:firebase-config:11.2.2'
 
     // 集成SDK
-        compile(name: 'privacy_policy_sdk-release_1.0.3', ext: 'aar')
-//    implementation project(':privacy_policy_sdk')
+//        compile(name: 'privacy_policy_sdk-release', ext: 'aar')
+    implementation project(':privacy_policy_sdk')
 }
 
 apply plugin: 'com.google.gms.google-services'

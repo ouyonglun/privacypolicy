@@ -13,4 +13,6 @@
     <string name="service_terms">service terms</string>
     <string name="content_privacy_dialog">We have updated our %1$s，and you can check it later from Setting-About.</string>
     <string name="ok">OK</string>
+    <string name="content_dialog_statement">By touching AGREE, you indicate that you agree to the above content and acknowledge that you have read the Privacy Policy.</string>
+    <string name="content_dialog_hint">* If you touch to “Cancel”, we will not collect your personal data, you still can use the APK but some feature would be disabled.</string>
 </resources>
