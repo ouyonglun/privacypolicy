@@ -2,6 +2,7 @@ package com.tcl.faext;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.text.Html;
 import android.text.SpannableString;
@@ -50,6 +51,15 @@ public class PrivacyPolicyDialog extends Dialog {
                 dismiss();
                 if (listener != null) {
                     listener.onCancelled();
+                }
+            }
+        });
+
+        this.setOnCancelListener(new OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                if (listener != null) {
+                    listener.onConfirmed();
                 }
             }
         });

@@ -75,7 +75,7 @@
             android:paddingBottom="15dp"
             android:paddingTop="15dp"
             android:text="Cancel"
-            android:textColor="#37000000"
+            android:textColor="#85000000"
             android:textSize="16sp" />
 
         <TextView
