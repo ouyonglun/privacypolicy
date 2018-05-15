@@ -3,13 +3,13 @@ package com.tcl.faext;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.util.Log;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
-import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
+import com.tcl.faext.utils.NetworkUtils;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * 隐私政策和服务条款SDK
@@ -22,7 +22,6 @@ public class PrivacyPolicySDK {
     public static final String[] MUTE_MCC_LIST = {"302", "310"};//302:加拿大；310：美国
 
     private static PrivacyPolicySDK sInstance;
-    private FirebaseRemoteConfig mFirebaseRemoteConfig;
 
     public static PrivacyPolicySDK getInstance() {
         if (sInstance == null) {
@@ -32,12 +31,6 @@ public class PrivacyPolicySDK {
     }
 
     private PrivacyPolicySDK() {
-        mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
-        FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
-                .setDeveloperModeEnabled(BuildConfig.DEBUG)
-                .build();
-        mFirebaseRemoteConfig.setConfigSettings(configSettings);
-        mFirebaseRemoteConfig.setDefaults(R.xml.remote_config_defaults);
     }
 
     /**
@@ -86,7 +79,12 @@ public class PrivacyPolicySDK {
                 }
                 if (on) {
                     if (activity != null && !activity.isFinishing()) {
-                        new PrivacyPolicyDialog(activity, listener).show();
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                new PrivacyPolicyDialog(activity, listener).show();
+                            }
+                        });
                     }
                 }
             }
@@ -100,35 +98,38 @@ public class PrivacyPolicySDK {
      * @param listener
      * @return
      */
-    public void fetchDialogSwitch(Activity activity, final String mcc, final OnFetchListener listener) {
-        long cacheExpiration = 60;
-        if (mFirebaseRemoteConfig.getInfo().getConfigSettings().isDeveloperModeEnabled()) {
-            cacheExpiration = 0;
-        }
-        mFirebaseRemoteConfig.fetch(cacheExpiration)
-                .addOnCompleteListener(activity, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            mFirebaseRemoteConfig.activateFetched();
-                            boolean r = mFirebaseRemoteConfig.getBoolean("shouldOpen");
-                            if (BuildConfig.DEBUG) {
-                                Log.i(TAG, "onComplete: successful = " + r);
-                            }
-                            listener.onCompleted(r);
-                        } else {
-                            boolean r = mFirebaseRemoteConfig.getBoolean("shouldOpen");
-                            if (BuildConfig.DEBUG) {
-                                Log.i(TAG, "onComplete: failed = " + r);
-                            }
-                            if (contains(mcc)) {
-                                listener.onCompleted(false);
-                            } else {
-                                listener.onCompleted(true);
-                            }
-                        }
+    public void fetchDialogSwitch(final Activity activity, final String mcc, final OnFetchListener listener) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String value = NetworkUtils.requestDialogSwitch(activity);
+                if (BuildConfig.DEBUG) {
+                    Log.i(TAG, "run: value = " + value);
+                }
+                String muteList = "";
+                try {
+                    JSONObject o = new JSONObject(value);
+                    muteList = o.getString("muteList");
+                    if (BuildConfig.DEBUG) {
+                        Log.i(TAG, "run: muteList = " + muteList);
                     }
-                });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                if (TextUtils.isEmpty(muteList)) {
+                    listener.onCompleted(!contains(mcc));
+                } else {
+                    listener.onCompleted(!containsNotEmpty(muteList, mcc));
+                }
+            }
+        }).start();
+    }
+
+    private boolean containsNotEmpty(String muteList, String mcc) {
+        if (TextUtils.isEmpty(mcc)) {
+            return false;
+        }
+        return muteList.contains(mcc);
     }
 
     private boolean contains(String mcc) {

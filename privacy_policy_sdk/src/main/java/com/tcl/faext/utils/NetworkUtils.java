@@ -3,7 +3,6 @@ package com.tcl.faext.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
 
 import com.tcl.faext.net.HttpApi;
 import com.tcl.faext.net.TlsOnlySocketFactory;
@@ -66,6 +65,51 @@ public class NetworkUtils {
         InputStream is = null;
         try {
             String keys = type + "_" + Locale.getDefault().getLanguage();
+            String pkg = context.getPackageName();
+            List<String> list = new ArrayList<>();
+            list.add(keys);
+            list.add(pkg);
+            String sign = SignUtil.generateSign(list);
+            connection = generateConnection(HttpApi.PATH_ALL_URL_V1 + "?pkg=" + pkg
+                    + "&keys=" + keys + "&sign=" + sign);
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+            int status = connection.getResponseCode();
+            switch (status) {
+                case HttpURLConnection.HTTP_OK: {
+                    is = connection.getInputStream();
+                    JSONObject result = convert(is);
+                    JSONObject config = new JSONObject(result.getString("data"));
+                    JSONArray array = new JSONArray(config.getString("configuration"));
+                    if (array.length() > 0) {
+                        JSONObject object = array.getJSONObject(0);
+                        return object.getString("value");
+                    } else {
+                        return "";
+                    }
+                }
+                default: {
+                    return null;
+                }
+            }
+        } catch (Exception e) {
+            return null;
+        } finally {
+            try {
+                is.close();
+            } catch (IOException ignore) {
+            }
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
+    }
+
+    public static String requestDialogSwitch(Context context) {
+        HttpURLConnection connection = null;
+        InputStream is = null;
+        try {
+            String keys = "privacy_policy_sdk_dialog_switch";//默认固定
             String pkg = context.getPackageName();
             List<String> list = new ArrayList<>();
             list.add(keys);
