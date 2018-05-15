@@ -55,14 +55,14 @@ public class PrivacyPolicyDialog extends Dialog {
             }
         });
 
-        this.setOnCancelListener(new OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                if (listener != null) {
-                    listener.onConfirmed();
-                }
-            }
-        });
+//        this.setOnCancelListener(new OnCancelListener() {
+//            @Override
+//            public void onCancel(DialogInterface dialog) {
+//                if (listener != null) {
+//                    listener.onConfirmed();
+//                }
+//            }
+//        });
     }
 
     private void init(final Context context, TextView contentView) {
