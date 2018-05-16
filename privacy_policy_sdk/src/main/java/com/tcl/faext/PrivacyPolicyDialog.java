@@ -55,6 +55,8 @@ public class PrivacyPolicyDialog extends Dialog {
             }
         });
 
+        this.setCancelable(false);
+
 //        this.setOnCancelListener(new OnCancelListener() {
 //            @Override
 //            public void onCancel(DialogInterface dialog) {
