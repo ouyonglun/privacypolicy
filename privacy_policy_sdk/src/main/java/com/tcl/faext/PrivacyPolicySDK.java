@@ -78,9 +78,10 @@ public class PrivacyPolicySDK {
     }
 
     /**
-     * 判断是否弹框(firebase云控)
+     * 判断是否弹框
      *
      * @param ctx
+     * @param mcc
      * @param listener
      * @return
      */
