@@ -1,9 +1,7 @@
 package com.tcl.faext;
 
-import android.app.ActionBar;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -22,17 +20,16 @@ import android.widget.TextView;
  */
 public class InformedConsentActivity extends BaseActivity {
     private final String TAG = "InformedConsentActivity";
-    private ActionBar mActionBar;
     private TextView informedDescription;
     //    private SwitchBar mSwitchBar;
     public final static String KEY_SWITHC_COLLECT = "hawkeye_enable";
     public final static String KEY_REFUSE_TIMES = "KEY_REFUSE_TIMES";
     public final static String KEY_LAST_TURN_OFF_TIME = "KEY_LAST_TURN_OFF_TIME";
+    private int mDefaultColor = Color.parseColor("#04000000");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        fullLayout();
         initGobalView();
     }
 
@@ -45,12 +42,15 @@ public class InformedConsentActivity extends BaseActivity {
 
     private void initGobalView() {
         setContentView(R.layout.disgnosticlib_activity_second);
-        mActionBar = getActionBar();
-        if (mActionBar != null) {
-            mActionBar.setDisplayHomeAsUpEnabled(true);
-            mActionBar.setTitle(R.string.about);
-            mActionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4FA2FE")));
-        }
+        mDefaultColor = getIntent().getIntExtra("color", Color.parseColor("#04000000"));
+        findViewById(R.id.ll_title).setBackgroundColor(mDefaultColor);
+        ((TextView) findViewById(R.id.tv_title)).setText(R.string.about);
+        findViewById(R.id.iv_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
 //        TextView tvContentTitle = (TextView) findViewById(R.id.informed_consent_title);
 //        tvContentTitle.setText(FAExt.getContentMessage(this));
@@ -65,7 +65,7 @@ public class InformedConsentActivity extends BaseActivity {
         msg2.setSpan(new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                PrivacyPolicySDK.getInstance().openTermsAndCondition(InformedConsentActivity.this);
+                PrivacyPolicySDK.getInstance().openTermsAndCondition(InformedConsentActivity.this, mDefaultColor);
             }
 
             @Override
@@ -82,7 +82,7 @@ public class InformedConsentActivity extends BaseActivity {
         msg3.setSpan(new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                PrivacyPolicySDK.getInstance().openPrivacyPolicy(InformedConsentActivity.this);
+                PrivacyPolicySDK.getInstance().openPrivacyPolicy(InformedConsentActivity.this, mDefaultColor);
             }
 
             @Override

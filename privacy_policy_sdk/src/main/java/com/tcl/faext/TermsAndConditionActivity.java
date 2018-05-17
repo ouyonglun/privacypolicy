@@ -24,7 +24,7 @@ import android.widget.TextView;
 
 /**
  * TermsAndCondition
- *
+ * <p>
  * Created by shaohua.li on 3/21/16.
  */
 public class TermsAndConditionActivity extends Activity {
@@ -34,7 +34,7 @@ public class TermsAndConditionActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(Build.VERSION.SDK_INT<=19){
+        if (Build.VERSION.SDK_INT <= 19) {
             setTheme(R.style.consentStyle);
         }
         mActionBar = getActionBar();
@@ -98,6 +98,16 @@ public class TermsAndConditionActivity extends Activity {
             openGDPRPrivacyPolicy(context);
         } catch (Exception e) {
             Intent intent = new Intent(context, PrivacyPolicyActivity.class);
+            context.startActivity(intent);
+        }
+    }
+
+    public static void showPrivacyPolicy(Context context, int color) {
+        try {
+            openGDPRPrivacyPolicy(context);
+        } catch (Exception e) {
+            Intent intent = new Intent(context, PrivacyPolicyActivity.class);
+            intent.putExtra("color", color);
             context.startActivity(intent);
         }
     }

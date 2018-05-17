@@ -1,11 +1,9 @@
 /* Copyright (C) 2016 Tcl Corporation Limited */
 package com.tcl.faext;
 
-import android.app.ActionBar;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -33,7 +31,6 @@ import java.lang.reflect.Method;
  */
 public class PrivacyPolicyActivity extends BaseActivity {
     //    private static final String DEFAULT_HTML = "file:///android_asset/agreement.html";
-    private ActionBar mActionBar;
 
     private WebView webView;
     private WebSettings webSettings;
@@ -51,23 +48,13 @@ public class PrivacyPolicyActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        fullLayout();
         setContentView(R.layout.disgnosticlib_activity_privacy_policy);
         initWebViewProvider();
-        if (Build.VERSION.SDK_INT <= 19) {
-            setTheme(R.style.consentStyle);
-        }
-        mActionBar = getActionBar();
-
-        if (mActionBar != null) {
-            mActionBar.setDisplayHomeAsUpEnabled(true);
-            mActionBar.setTitle(R.string.privacy_policy);
-            mActionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4FA2FE")));
-        }
-
+//        if (Build.VERSION.SDK_INT <= 19) {
+//            setTheme(R.style.consentStyle);
+//        }
         findViewById();
         initData();
-
     }
 
     private void findViewById() {
@@ -81,6 +68,15 @@ public class PrivacyPolicyActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 initData();
+            }
+        });
+        int color = getIntent().getIntExtra("color", Color.parseColor("#04000000"));
+        findViewById(R.id.ll_title).setBackgroundColor(color);
+        ((TextView) findViewById(R.id.tv_title)).setText(R.string.privacy_policy);
+        findViewById(R.id.iv_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
     }

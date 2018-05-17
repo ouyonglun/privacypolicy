@@ -44,11 +44,21 @@ public class PrivacyPolicySDK {
         context.startActivity(intent);
     }
 
+    public void openAbout(Context context, int color) {
+        Intent intent = new Intent(context, InformedConsentActivity.class);
+        intent.putExtra("color", color);
+        context.startActivity(intent);
+    }
+
     /**
      * 打开隐私政策
      */
     public void openPrivacyPolicy(Context context) {
         TermsAndConditionActivity.showPrivacyPolicy(context);
+    }
+
+    public void openPrivacyPolicy(Context context, int color) {
+        TermsAndConditionActivity.showPrivacyPolicy(context, color);
     }
 
     /**
@@ -60,6 +70,16 @@ public class PrivacyPolicySDK {
         try {
 //            Intent intent = new Intent(context, TermsAndConditionActivity.class);
             Intent intent = new Intent(context, TermsActivity.class);
+            context.startActivity(intent);
+        } catch (Exception e) {
+        }
+    }
+
+    public void openTermsAndCondition(Context context, int color) {
+        try {
+//            Intent intent = new Intent(context, TermsAndConditionActivity.class);
+            Intent intent = new Intent(context, TermsActivity.class);
+            intent.putExtra("color", color);
             context.startActivity(intent);
         } catch (Exception e) {
         }
