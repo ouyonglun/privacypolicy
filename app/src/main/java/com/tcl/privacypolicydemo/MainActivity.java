@@ -9,6 +9,7 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 
+import com.tcl.faext.OnFetchListener;
 import com.tcl.faext.PrivacyPolicyDialog;
 import com.tcl.faext.PrivacyPolicySDK;
 
@@ -39,15 +40,22 @@ public class MainActivity extends AppCompatActivity {
                 if (BuildConfig.DEBUG) {
                     Log.i(TAG, "onClick: mcc = " + mcc);
                 }
-                PrivacyPolicySDK.getInstance().openPolicyDialog(MainActivity.this, mcc, new PrivacyPolicyDialog.OnPrivacyDialogClickListener() {
+                PrivacyPolicySDK.getInstance().fetchDialogSwitch(MainActivity.this, mcc, new OnFetchListener() {
                     @Override
-                    public void onConfirmed() {
-                        Log.d(TAG, "onConfirmed: ");
-                    }
+                    public void onCompleted(boolean result) {
+                        if (result) {
+                            PrivacyPolicySDK.getInstance().openPolicyDialog(MainActivity.this, new PrivacyPolicyDialog.OnPrivacyDialogClickListener() {
+                                @Override
+                                public void onConfirmed() {
+                                    Log.d(TAG, "onConfirmed: ");
+                                }
 
-                    @Override
-                    public void onCancelled() {
-                        Log.d(TAG, "onCancelled: ");
+                                @Override
+                                public void onCancelled() {
+                                    Log.d(TAG, "onCancelled: ");
+                                }
+                            });
+                        }
                     }
                 });
             }

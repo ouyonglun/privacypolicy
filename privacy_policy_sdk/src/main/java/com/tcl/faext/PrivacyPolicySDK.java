@@ -3,6 +3,7 @@ package com.tcl.faext;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -67,62 +68,53 @@ public class PrivacyPolicySDK {
     /**
      * 打开隐私政策弹窗
      *
-     * @param activity
-     * @param mcc
+     * @param activity 启动弹窗的activity
+     * @param listener 弹窗点击事件监听
      */
-    public void openPolicyDialog(final Activity activity, String mcc, final PrivacyPolicyDialog.OnPrivacyDialogClickListener listener) {
-        PrivacyPolicySDK.getInstance().fetchDialogSwitch(activity, mcc, new OnFetchListener() {
-            @Override
-            public void onCompleted(boolean on) {
-                if (BuildConfig.DEBUG) {
-                    Log.i(TAG, "onCompleted: [on]" + on);
-                }
-                if (on) {
-                    if (activity != null && !activity.isFinishing()) {
-                        activity.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                new PrivacyPolicyDialog(activity, listener).show();
-                            }
-                        });
-                    }
-                }
-            }
-        });
+    public void openPolicyDialog(final Activity activity, final PrivacyPolicyDialog.OnPrivacyDialogClickListener listener) {
+        if (activity != null && !activity.isFinishing()) {
+            new PrivacyPolicyDialog(activity, listener).show();
+        }
     }
 
     /**
      * 判断是否弹框(firebase云控)
      *
-     * @param activity
+     * @param ctx
      * @param listener
      * @return
      */
-    public void fetchDialogSwitch(final Activity activity, final String mcc, final OnFetchListener listener) {
+    public void fetchDialogSwitch(final Context ctx, final String mcc, final OnFetchListener listener) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String value = NetworkUtils.requestDialogSwitch(activity);
+                final String value = NetworkUtils.requestDialogSwitch(ctx);
                 if (BuildConfig.DEBUG) {
                     Log.i(TAG, "run: value = " + value);
                 }
-                String whiteList = "";
-                if (value != null) {
-                    try {
-                        JSONObject o = new JSONObject(value);
-                        whiteList = o.getString("whiteList");
-                        if (BuildConfig.DEBUG) {
-                            Log.i(TAG, "run: whiteList = " + whiteList);
+                Handler handler = new Handler(ctx.getMainLooper());
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        String whiteList = "";
+                        if (value != null) {
+                            try {
+                                JSONObject o = new JSONObject(value);
+                                whiteList = o.getString("whiteList");
+                                if (BuildConfig.DEBUG) {
+                                    Log.i(TAG, "run: whiteList = " + whiteList);
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                        if (TextUtils.isEmpty(whiteList)) {
+                            listener.onCompleted(DEFAULT_MCC_WHITE_LIST.contains(mcc));
+                        } else {
+                            listener.onCompleted(whiteList.contains(mcc));
+                        }
                     }
-                }
-                if (TextUtils.isEmpty(whiteList)) {
-                    listener.onCompleted(DEFAULT_MCC_WHITE_LIST.contains(mcc));
-                } else {
-                    listener.onCompleted(whiteList.contains(mcc));
-                }
+                });
             }
         }).start();
     }
