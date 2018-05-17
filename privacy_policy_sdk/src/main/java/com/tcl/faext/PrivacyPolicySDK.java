@@ -86,6 +86,10 @@ public class PrivacyPolicySDK {
      * @return
      */
     public void fetchDialogSwitch(final Context ctx, final String mcc, final OnFetchListener listener) {
+        if (TextUtils.isEmpty(mcc)) {
+            listener.onCompleted(true);
+            return;
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
