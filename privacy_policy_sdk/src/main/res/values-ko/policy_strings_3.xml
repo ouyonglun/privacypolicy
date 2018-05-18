@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">취소&quot;를 선택하거나 이후 동의를 철회하면 당사는 개인 정보를 수집하지 않지만, 앱의 특정 기능을 제공하지 못할 수도 있습니다.</string>
+	<string name="content_dialog_statement">동의를 터치하면 상기 내용을 동의하고, 개인정보 보호정책을 읽었음을 확인하는 것입니다.</string>
+</resources>

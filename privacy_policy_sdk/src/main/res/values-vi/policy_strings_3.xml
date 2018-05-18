@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Nếu bạn chọn &quot;hủy&quot;, hoặc sau đó rút lại sự đồng ý của bạn, chúng tôi sẽ không thu thập thông tin cá nhân của bạn nhưng chúng tôi có thể không cung cấp cho bạn một số tính năng nhất định của ứng dụng của chúng tôi.</string>
+	<string name="content_dialog_statement">Bằng cách chạm vào AGREE (ĐỒNG Ý), bạn chỉ ra rằng bạn đồng ý với nội dung trên và xác nhận rằng bạn đã đọc Chính sách Bảo mật.</string>
+</resources>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Ako izaberete „otkaži&quot; , ili naknadno povučete svoj pristanak, nećemo skupljati vaše lične podatke, ali možda nećemo moći da vam obezbedimo određene funkcije naše aplikacije.</string>
+	<string name="content_dialog_statement">Ako dodirnete SLAŽEM SE,  pokazujete da ste saglasni sa gorenavednim sadržajem i potvrđujete da ste pročitali Politiku privatnosti.</string>
+</resources>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Kui valid Tühista või võtad nõusoleku hiljem tagasi, ei kogu me sinu isiklikke andmeid, kuid on võimalik, et me ei saa äpi teatud funktsioone pakkuda.</string>
+	<string name="content_dialog_statement">Valides NÕUSTUN nõustud ülal toodud sisuga ja kinnitad, et oled privaatsuspoliitika läbi lugenud.</string>
+</resources>

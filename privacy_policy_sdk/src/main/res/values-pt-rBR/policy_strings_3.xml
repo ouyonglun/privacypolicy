@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Se você escolher &quot;Cancelar&quot; ou subsequentemente retirar seu consentimento, não coletaremos suas informações pessoais, mas poderemos não ser capazes de fornecer determinados recursos do nosso aplicativo.</string>
+	<string name="content_dialog_statement">Tocando em CONCORDO, você indica que concorda com o conteúdo acima e confirma que leu a Política de privacidade.</string>
+</resources>

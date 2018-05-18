@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Hvis du vælger &quot;Annullér&quot; eller efterfølgende tilbagetrækker dit samtykke, samler vi ikke dine personlige oplysninger, men vi vil ikke kunne forsyne dig med visse funktioner i vores app.</string>
+	<string name="content_dialog_statement">Ved at trykke på JEG ACCEPTERER angiver du, at du accepterer ovenstående indhold, og du anerkender, at du har læst politikken om beskyttelse af personlige oplysninger.</string>
+</resources>

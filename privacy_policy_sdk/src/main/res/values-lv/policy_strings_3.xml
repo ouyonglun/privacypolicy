@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Ja izvēlēsieties &quot;Atcelt&quot; vai vēlāk anulēsiet šo atļauju, mēs neiegūsim jūsu personas informāciju, bet dažas lietotnes funkcijas var nebūt jums pieejamas.</string>
+	<string name="content_dialog_statement">Pieskaroties pie pogas PIEKRĪTU, jūs norādāt, ka piekrītat augstāk minētajam saturam, un apstiprināt, ka esat izlasījuši Privātuma politiku.</string>
+</resources>

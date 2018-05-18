@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Dacă alegeți să anulați sau vă retrageți ulterior consimțământul, nu vom colecta datele dvs. personale și este posibil să nu aveți acces la anumite funcții pe care le oferim.</string>
+	<string name="content_dialog_statement">Atingând opțiunea ACCEPT, indicați că sunteți de acord cu conținutul de mai sus și confirmați că ați citit Politica de confidențialitate.</string>
+</resources>

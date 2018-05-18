@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">إذا اخترت &quot;إلغاء&quot;، أو تراجعت عن موافقتك لاحقًا، فلن نجمع اطلاعات شما الشخصية، ولكننا قد لا نتمكن من تزويدك بميزات معينة لتطبيقنا.</string>
+	<string name="content_dialog_statement">بلمس AGREE، فإنك تشير إلى موافقتك على المحتوى المذكور أعلاه، وتقر بأنك قد قرأت سياسة الخصوصية.</string>
+</resources>

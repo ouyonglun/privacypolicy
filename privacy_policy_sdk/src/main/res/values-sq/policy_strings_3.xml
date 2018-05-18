@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Nëse zgjedh “Anulo” ose më pas e tërheq miratimin tënd, ne nuk do ta grumbullojmë informacionin tënd personal, por mund të mos jemi në gjendje të të ofrojmë veçori të caktuara të aplikacionit tonë.</string>
+	<string name="content_dialog_statement">Duke prekur PRANOJ, tregon se je dakord me përmbajtjen e mësipërme dhe pranon se ke lexuar Politikën e privatësisë.</string>
+</resources>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">「キャンセル」を選択するか、またはその後同意を撤回した場合、当社は、個人情報を収集しませんが、アプリの特定の機能をユーザーに提供できない場合があります。</string>
+	<string name="content_dialog_statement">「同意」にタッチすることにより、上記の内容に同意し、プライバシーに関する方針を読んだことを認めることになります。</string>
+</resources>

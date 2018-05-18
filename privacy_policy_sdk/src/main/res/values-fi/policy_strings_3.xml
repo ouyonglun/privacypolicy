@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Jos valitset &quot;peruuta&quot; tai peruutat suostumuksesi, emme kerää henkilötietojasi, mutta emme välttämättä pysty tarjoamaan sinulle tiettyje sovelluksemme ominaisuuksia.</string>
+	<string name="content_dialog_statement">Koskettamalla HYVÄKSYN ilmoitat, että hyväksyt yllä olevan sisällön ja vahvistat, että olet lukenut tietosuojakäytännön.</string>
+</resources>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Als u Annuleren kiest of uw toestemming intrekt, verzamelen we uw persoonlijke gegevens niet, maar kunnen we bepaalde functies van onze app mogelijk niet aanbieden.</string>
+	<string name="content_dialog_statement">Als u AKKOORD aanraakt, geeft u aan dat u akkoord gaat met de bovenstaande inhoud en erkent u dat u het Privacybeleid hebt gelezen.</string>
+</resources>

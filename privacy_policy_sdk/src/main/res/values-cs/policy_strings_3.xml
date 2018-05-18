@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Pokud vyberete možnost „zrušit“ nebo se později rozhodnete svůj souhlas odvolat, nebudeme vaše osobní informace shromažďovat. Je ale možné, že vám nebudeme moci poskytnout některé funkce naší aplikace.</string>
+	<string name="content_dialog_statement">Stisknutím tlačítka SOUHLASÍM dáváte najevo, že souhlasíte s výše uvedeným a že jste přečetli zásady ochrany osobních údajů.</string>
+</resources>

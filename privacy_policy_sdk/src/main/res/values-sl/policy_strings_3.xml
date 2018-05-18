@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Če izberete možnost »Prekliči« ali če pozneje umaknete svoje soglasje, ne bomo zbirali osebnih informacij, vendar vam morda ne bomo mogli zagotoviti določenih funkcij naše aplikacije.</string>
+	<string name="content_dialog_statement">Če se dotaknete možnosti STRINJAM SE, izkazujete svoje strinjanje z zgoraj navedeno vsebino in potrjujete, da ste prebrali pravilnik o zasebnosti.</string>
+</resources>

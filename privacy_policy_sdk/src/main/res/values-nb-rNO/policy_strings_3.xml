@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Hvis du velger «avbryt», eller trekker tilbake samtykket ditt ved en senere anledning, samler vi ikke inn personopplysningene dine, men da kan vi heller ikke tilby deg alle funksjonene i appen.</string>
+	<string name="content_dialog_statement">Ved å trykke ENIG bekrefter du at du godtar det ovennevnte innholdet og anerkjenner at du har lest retningslinjene for personvern.</string>
+</resources>

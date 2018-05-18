@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">“İptal”i seçer veya daha sonra izninizi geri çekerseniz kişisel bilgilerinizi toplamayız, ancak bu durumda uygulamamızın bazı özelliklerini size sunamayabiliriz.</string>
+	<string name="content_dialog_statement">&quot;KABUL ET'e dokunarak yukarıdaki içeriği kabul ettiğinizi belirtir ve Gizlilik Politikamızı okuduğunuzu beyan edersiniz.&quot;</string>
+</resources>

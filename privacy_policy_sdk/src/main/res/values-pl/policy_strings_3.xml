@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Wybór opcji „anuluj” lub późniejsze wycofanie zgody sprawi, że nie będziemy gromadzić Twoich danych osobowych, jednak niektóre funkcje naszej aplikacji mogą nie być dla Ciebie dostępne.</string>
+	<string name="content_dialog_statement">Wybierając ZGADZAM SIĘ, wyrażasz zgodę na powyższe warunki i potwierdzasz zapoznanie się z Polityką prywatności.</string>
+</resources>

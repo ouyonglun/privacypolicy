@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">אם תבחר להימנע מהסכמה, או אם תחליט בשלב מאוחר יותר לבטל את הסכמתך, אנו נפסיק לאסוף את המידע האישי שלך, אולם ייתכן שלא נוכל לספק לך יכולות מסוימות של היישומון שלנו.</string>
+	<string name="content_dialog_statement">בהקשה על &quot;מסכים&quot; אתה מציין את הסכמתך לתוכן שלעיל ומאשר שקראת את מדיניות הפרטיות.</string>
+</resources>

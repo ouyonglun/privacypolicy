@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Si vous sélectionnez « Annuler » ou si vous choisissez de retirer votre consentement a posteriori, nous ne recueillirons pas vos informations personnelles mais il se peut que nous ne soyons pas en mesure de vous offrir certaines fonctionnalités de notre application.</string>
+	<string name="content_dialog_statement">En appuyant sur ACCEPTER, vous indiquez accepter le contenu mentionné ci-avant et reconnaissez avoir lu la Politique de confidentialité.</string>
+</resources>

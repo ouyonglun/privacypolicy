@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">&quot;Se si seleziona &quot;Annulla&quot;, oppure si ritira il proprio consenso in un secondo momento, l'azienda non raccoglierà i dati personali dell'utente ma potrebbe non essere in grado di fornire alcune funzionalità dell'applicazione.&quot;</string>
+	<string name="content_dialog_statement">&quot;Toccando ACCETTO, l'utente conferma di accettare il contenuto presente nella sezione soprastante e conferma di aver letto l'Informativa sulla privacy.&quot;</string>
+</resources>

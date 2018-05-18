@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Falls Sie „Abbrechen“ auswählen oder Ihre Zustimmung später widerrufen, erfassen wir Ihre personenbezogenen Informationen nicht. In diesem Fall können Sie jedoch möglicherweise nicht auf bestimmte Funktionen unserer App zugreifen.</string>
+	<string name="content_dialog_statement">Durch das Berühren der Schaltfläche „Zustimmen“ bestätigen Sie, dass Sie sich mit den Inhalten oben einverstanden erklären und unsere Datenschutzerklärung gelesen haben.</string>
+</resources>

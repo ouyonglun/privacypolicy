@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Se tocas CANCELAR ou retiras o teu consentimento máis adiante, non gardaremos os teus datos persoais, pero quizais non poderemos ofrecerche algunhas das funcións da app.</string>
+	<string name="content_dialog_statement">Tocando ACEPTAR, indicas que aceptas o exposto anteriormente e  que liches a Política de privacidade.</string>
+</resources>

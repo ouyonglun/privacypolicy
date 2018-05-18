@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Om du väljer &quot;Avbryt&quot;, eller senare tar tillbaka till medgivande, kommer vi inte att samla in dina personuppgifter. Dock kan det betyda att vi inte kommer att kunna erbjuda vissa funktioner i vår app.</string>
+	<string name="content_dialog_statement">Genom att trycka på GODKÄNN godkänner du innehållet ovan och bekräftar att du läst Sekretesspolicyn.</string>
+</resources>

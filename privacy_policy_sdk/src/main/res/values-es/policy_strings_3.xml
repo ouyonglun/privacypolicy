@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Si escoge &quot;Cancelar&quot;, o retira su consentimiento más adelante, no recopilaremos datos de carácter personal, pero no podremos ofrecerle algunas funcionalidades de nuestra aplicación.</string>
+	<string name="content_dialog_statement">Al tocar ACEPTO, indica que acepta el contenido anterior y que ha leído la Política de privacidad.</string>
+</resources>

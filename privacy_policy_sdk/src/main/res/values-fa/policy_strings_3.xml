@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">اگر &quot;لغو&quot; را انتخاب کنید، با از رضایت خود صرفنظر کنید، اطلاعات شخصی شما را جمع آوری نمی کنیم و ممکن است نتوانیم ویژگی های خاص برنامه خود را در اختیار شما قرار دهیم.</string>
+	<string name="content_dialog_statement">با لمس AGREE، نشان می دهید با محتوای بالا موافقت دارید و تصدیق می کنید که سیاست حفظ حریم خصوصی را مطالعه کرده اید.</string>
+</resources>

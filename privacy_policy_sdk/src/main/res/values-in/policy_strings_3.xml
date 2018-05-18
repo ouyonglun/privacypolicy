@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Jika Anda memilih “batal”, atau selanjutnya menarik kembali persetujuan Anda, kami tidak akan mengumpulkan informasi pribadi tetapi kami mungkin tidak dapat menyediakan fitur tertentu aplikasi kami bagi Anda.</string>
+	<string name="content_dialog_statement">Dengan menyentuh SETUJU, Anda menyatakan bahwa Anda menyetujui konten di atas dan mengakui bahwa Anda telah membaca Kebijakan Privasi.</string>
+</resources>

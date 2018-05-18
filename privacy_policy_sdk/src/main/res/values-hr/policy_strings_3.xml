@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Ukoliko odaberete &quot;odustani&quot; ili naknadno povučete svoj pristanak, nećemo prikupljati osobne podatke ali možda nećemo moći pružiti vam određene značajke naše aplikacije.</string>
+	<string name="content_dialog_statement">Dodirom na SLAŽEM SE, naznačavate da se slažete sa sadržajem iznad i potvrđujete da ste pročitali Pravila privatnosti.</string>
+</resources>

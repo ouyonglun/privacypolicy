@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Jeigu pasirinksite „atšaukti“ arba nesutiksite su pateiktu turiniu, mes nekaupsime jūsų asmeninių duomenų, bet taip pat negalėsime užtikrinti tam tikrų programų funkcijų.</string>
+	<string name="content_dialog_statement">Paliesdami SUTIKTI, jūs sutinkate su aukščiau išdėstytu turiniu ir sutinkate su mūsų privatumo politika.</string>
+</resources>

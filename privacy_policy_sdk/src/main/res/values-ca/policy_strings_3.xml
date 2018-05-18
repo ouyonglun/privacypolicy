@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Si trieu &quot;Cancel·lar&quot; o retireu el consentiment més endavant, no recopilarem dades de caràcter personal, però no podrem oferir-vos algunes de les funcions de la nostra aplicació.</string>
+	<string name="content_dialog_statement">En tocar ACCEPTO, indiqueu que accepteu el contingut anterior i que heu llegit la Política de privadesa.</string>
+</resources>

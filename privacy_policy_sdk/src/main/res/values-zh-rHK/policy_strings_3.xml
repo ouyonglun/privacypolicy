@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">若閣下選擇“取消”或撤銷閣下之許可，我們將不會收集閣下之個人資料，但我們亦將無法為閣下提供本程式的特定功能。</string>
+	<string name="content_dialog_statement">若閣下選擇“同意”，則意味閣下接受上述條款并表示閣下已閱讀
+本私隱政策。</string>
+</resources>

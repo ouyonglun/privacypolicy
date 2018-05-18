@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="content_dialog_hint">Ha a „Mégse” lehetőséget választja, vagy a későbbiekben visszavonja a beleegyezését, nem fogunk személyes adatokat gyűjteni, azonban előfordulhat, hogy Ön nem fér hozzá az alkalmazásunk bizonyos funkcióihoz.</string>
+	<string name="content_dialog_statement">Az ELFOGADOM gomb megérintésével Ön azt jelzi, hogy elfogadja a fentiekben foglaltakat, valamint elfogadja az Adatvédelmi nyilatkozat feltételeit.</string>
+</resources>
