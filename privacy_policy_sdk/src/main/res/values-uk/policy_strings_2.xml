@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?><resources>
-	<string name="agree">متفق</string>
-	<string name="cancel">منسوخ</string>
+	<string name="agree">Прийняти</string>
+	<string name="cancel">Скасувати</string>
 </resources>

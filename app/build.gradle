@@ -33,6 +33,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
     // 集成SDK
-//        compile(name: 'privacy_policy_sdk-release_1.0.5', ext: 'aar')
-    implementation project(':privacy_policy_sdk')
+        compile(name: 'privacy_policy_sdk-release_1.0.6', ext: 'aar')
+//    implementation project(':privacy_policy_sdk')
 }

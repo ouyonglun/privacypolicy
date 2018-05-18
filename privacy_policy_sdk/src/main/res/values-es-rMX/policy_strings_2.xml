@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?><resources>
-	<string name="agree">Piekrītu</string>
-	<string name="cancel">Atcelt</string>
+	<string name="agree">Aceptar</string>
+	<string name="cancel">Cancelar</string>
 </resources>
