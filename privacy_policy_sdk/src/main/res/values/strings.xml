@@ -14,7 +14,7 @@
     <string name="content_privacy_dialog">We have updated our %1$s，and you can check it later from Setting-About.</string>
     <string name="ok">OK</string>
     <string name="content_dialog_statement">By touching AGREE, you indicate that you agree to the above content and acknowledge that you have read the Privacy Policy.</string>
-    <string name="content_dialog_hint">* If you choose \"cancel\", or subsequently withdraw your consent, we will not collect our personal information but we may not be able to provide you with certain features of our app.</string>
+    <string name="content_dialog_hint">If you choose \"cancel\", or subsequently withdraw your consent, we will not collect your personal information but we may not be able to provide you with certain features of our app.</string>
     <string name="agree">Agree</string>
     <string name="cancel">Cancel</string>
 </resources>
