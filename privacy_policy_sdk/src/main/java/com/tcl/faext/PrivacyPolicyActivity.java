@@ -76,7 +76,7 @@ public class PrivacyPolicyActivity extends BaseActivity {
         findViewById(R.id.iv_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                finish();
             }
         });
     }
