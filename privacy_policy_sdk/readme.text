@@ -1,4 +1,4 @@
-隐私政策&服务条款SDK集成和接口说明:
+new隐私政策&服务条款SDK集成和接口说明:
 target：privac_policy_sdk集成的目标应用。以下target具有相同意义
 
 1.添加privac_policy_sdk依赖
